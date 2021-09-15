@@ -7,6 +7,7 @@ import { UpdateComponent } from './views/update/update.component';
 import { DeleteComponent } from './views/delete/delete.component';
 import { HomeComponent } from './views/home/home.component';
 import { ReadComponent } from './views/read/read.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ReadComponent } from './views/read/read.component';
     ReadComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
