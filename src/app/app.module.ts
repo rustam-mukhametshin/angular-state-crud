@@ -10,6 +10,7 @@ import { ReadComponent } from './views/read/read.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRouterModule } from './app-router.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FormComponent } from './views/form/form.component';
 
 const modules = [
   BrowserModule,
@@ -25,7 +26,8 @@ const modules = [
     UpdateComponent,
     DeleteComponent,
     HomeComponent,
-    ReadComponent
+    ReadComponent,
+    FormComponent
   ],
   imports: [
     ...modules,
