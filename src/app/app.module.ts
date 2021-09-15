@@ -9,6 +9,14 @@ import { HomeComponent } from './views/home/home.component';
 import { ReadComponent } from './views/read/read.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRouterModule } from './app-router.module';
+import { ReactiveFormsModule } from '@angular/forms';
+
+const modules = [
+  BrowserModule,
+  HttpClientModule,
+  AppRouterModule,
+  ReactiveFormsModule,
+]
 
 @NgModule({
   declarations: [
@@ -20,9 +28,7 @@ import { AppRouterModule } from './app-router.module';
     ReadComponent
   ],
   imports: [
-    BrowserModule,
-    HttpClientModule,
-    AppRouterModule,
+    ...modules,
   ],
   providers: [],
   bootstrap: [AppComponent]
