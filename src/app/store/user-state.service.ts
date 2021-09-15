@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { shareReplay } from 'rxjs/operators';
 import { UserInterface } from './user-interface';
 import { UserStateInterface } from './user-state-interface';
+import { UserService } from '../services/user.service';
 
 const initialState: UserStateInterface = {
   users: [],
@@ -25,8 +26,12 @@ export class UserStateService extends StateService<UserStateInterface> {
     return state.users.find(user => user.id === state.selectedUserId)
   })
 
-  constructor() {
+  constructor(
+    private readonly userService: UserService
+  ) {
     super(initialState);
+
+    this.init();
   }
 
   addUser(user: UserInterface) {
@@ -42,6 +47,10 @@ export class UserStateService extends StateService<UserStateInterface> {
     this.setState({
       selectedUserId: user.id
     })
+  }
+
+  private init() {
+    this.userService.getUsers().subscribe(users => this.setState({users}))
   }
 
 }
