@@ -8,6 +8,7 @@ import { DeleteComponent } from './views/delete/delete.component';
 import { HomeComponent } from './views/home/home.component';
 import { ReadComponent } from './views/read/read.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AppRouterModule } from './app-router.module';
 
 @NgModule({
   declarations: [
@@ -21,8 +22,10 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     HttpClientModule,
+    AppRouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
