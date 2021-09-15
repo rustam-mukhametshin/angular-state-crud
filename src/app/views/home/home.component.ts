@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
 import { UserStateService } from '../../store/user-state.service';
-import { UserInterface } from '../../store/user-interface';
+import { UserInterface, UserInterface as User } from '../../store/user-interface';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +10,8 @@ import { UserInterface } from '../../store/user-interface';
 })
 export class HomeComponent implements OnInit {
 
-  users: UserInterface[] | undefined;
+  @Input()
+  users: User[] | undefined;
 
   labels: string[] | undefined;
 
@@ -31,6 +32,10 @@ export class HomeComponent implements OnInit {
       'Email',
       'Phone'
     ]
+  }
+
+  selectUser(user: UserInterface) {
+    this.userStateService.selectUser(user)
   }
 
 }
