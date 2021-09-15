@@ -6,7 +6,7 @@
     <!--    <input ng-model="search" id="search" class="form-control" placeholder="Filter text">-->
   </div>
 </div>
-<table *ngIf="users.length > 0; let i = index" class="table table-striped table-bordered">
+<table *ngIf="users" class="table table-striped table-bordered">
   <thead>
   <tr>
     <th *ngFor="let i of labels" scope="col">{{i}}</th>
