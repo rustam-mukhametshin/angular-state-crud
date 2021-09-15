@@ -29,4 +29,13 @@ export class UserStateService extends StateService<UserStateInterface> {
     super(initialState);
   }
 
+  addUser(user: UserInterface) {
+    this.setState({
+      users: [
+        ...this.state.users,
+        user,
+      ]
+    })
+  }
+
 }
