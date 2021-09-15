@@ -23,9 +23,9 @@
     <td>@{{user.phone}}</td>
     <td>
       <div class="btn-group" role="group">
-        <!--        <a href="#!/read/{{user.id}}" type="button" class="btn btn-info">Read</a>-->
-        <!--        <a href="#!/update/{{user.id}}" type="button" class="btn btn-warning">Update</a>-->
-        <!--        <a href="#!/delete/{{user.id}}" type="button" class="btn btn-danger">Delete</a>-->
+        <a [routerLink]="['/read', user.id]" class="btn btn-info" type="button">Read</a>
+        <a [routerLink]="['/update', user.id]" class="btn warning" type="button">Update</a>
+        <a [routerLink]="['/delete', user.id]" class="btn danger" type="button">Delete</a>
       </div>
     </td>
   </tr>
