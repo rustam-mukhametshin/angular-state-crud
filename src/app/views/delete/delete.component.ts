@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserStateService } from '../../store/user-state.service';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-delete',
@@ -16,6 +17,13 @@ export class DeleteComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.userStateService.selectedUser$
+      .pipe(
+        take(1)
+      )
+      .subscribe(user => {
+        this.userStateService.delete(user);
+      })
   }
 
 
