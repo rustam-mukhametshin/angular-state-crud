@@ -1,6 +1,6 @@
 <h1>Delete page</h1>
 
-<div class="alert alert-success" ng-if="successMsg" role="alert">
+<div *ngIf="successMsg" class="alert alert-success" role="alert">
   <p>Successfully deleted. Id: {{id}}</p>
   {{successMsg.status | json}}
 </div>
