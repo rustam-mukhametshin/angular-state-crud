@@ -24,14 +24,14 @@ export class UserService {
   }
 
   updateUser(user: User): Observable<User> {
-    return this.httpClient.put<User>(apiUrl + user.id, user);
+    return this.httpClient.put<User>(apiUrl + '/' + user.id, user);
   }
 
   deleteUser(user: UserInterface | undefined): Observable<void> {
-    return this.httpClient.delete<void>(apiUrl + (user ? user?.id : null));
+    return this.httpClient.delete<void>(apiUrl + '/' + (user ? user?.id : null));
   }
 
   getUser(user: User): Observable<User> {
-    return this.httpClient.get<User>(apiUrl + user.id);
+    return this.httpClient.get<User>(apiUrl + '/' + user.id);
   }
 }
