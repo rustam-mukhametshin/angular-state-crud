@@ -49,6 +49,17 @@ export class UserStateService extends StateService<UserStateInterface> {
     })
   }
 
+  // Service API
+
+  create(user: UserInterface) {
+    this.userService.createUser(user).subscribe((newUser) => {
+      this.setState({
+        users: [...this.state.users, newUser],
+        selectedUserId: newUser.id,
+      });
+    });
+  }
+
   private init() {
     this.userService.getUsers().subscribe(users => this.setState({users}))
   }
