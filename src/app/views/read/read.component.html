@@ -1,1 +1,32 @@
-<p>read works!</p>
+<h1>Read page</h1>
+
+<table *ngIf="user" class="table table-dark">
+  <tbody>
+  <tr>
+    <th>ID</th>
+    <th colspan="3">{{user.id}}</th>
+  </tr>
+  <tr>
+    <th>Name</th>
+    <th colspan="3">{{user.username}}</th>
+  </tr>
+  <tr>
+    <th>Email</th>
+    <th colspan="3">{{user.email}}</th>
+  </tr>
+  <tr>
+    <th>Phone</th>
+    <th colspan="3">{{user.phone}}</th>
+  </tr>
+  <tr>
+    <td></td>
+    <td class="text-right">
+      <div class="btn-group " role="group">
+        <a [routerLink]="['/update', user.id]" class="btn warning" type="button">Update</a>
+        <a [routerLink]="['/delete', user.id]" class="btn danger" type="button">Delete</a>
+      </div>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
