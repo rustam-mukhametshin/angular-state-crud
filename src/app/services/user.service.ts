@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { UserInterface as User } from '../store/user-interface';
+import { UserInterface, UserInterface as User } from '../store/user-interface';
 
 const apiUrl = 'https://jsonplaceholder.typicode.com/users';
 
@@ -27,8 +27,8 @@ export class UserService {
     return this.httpClient.put<User>(apiUrl + user.id, user);
   }
 
-  deleteUser(user: User): Observable<void> {
-    return this.httpClient.delete<void>(apiUrl + user.id);
+  deleteUser(user: UserInterface | undefined): Observable<void> {
+    return this.httpClient.delete<void>(apiUrl + (user ? user?.id : null));
   }
 
   getUser(user: User): Observable<User> {
