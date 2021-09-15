@@ -1,1 +1,36 @@
-<p>update works!</p>
+<h1>Update page</h1>
+
+<form [formGroup]="form" class="mb-2 pb-2">
+  <div class="form-group mb-2">
+    <label for="first">User name</label>
+    <input aria-describedby="firstHelp" class="form-control" formControlName="username" id="first"
+           placeholder="Enter name"
+           type="text">
+  </div>
+  <div class="form-group mb-2">
+    <label for="last">Email</label>
+    <input aria-describedby="last" class="form-control" formControlName="email" id="last" placeholder="Enter email"
+           type="email">
+  </div>
+  <div class="form-group mb-2">
+    <label for="handle">Phone</label>
+    <input aria-describedby="handle" class="form-control" formControlName="phone" id="handle" placeholder="Enter phone"
+           type="tel">
+  </div>
+
+  <!-- <div class="alert alert-success" role="alert" ng-if="successMsg">
+     {{successMsg.status | json}}
+   </div>
+
+   <div class="alert alert-danger" role="alert" ng-if="errorMsg">
+     {{errorMsg | json}}
+   </div>-->
+
+  <button (click)="reset()" class="btn btn-success" type="button">Reset</button>
+  <button (click)="submit()" [disabled]="disabled" class="btn btn-success" type="submit">Save</button>
+
+  <br>
+  <br>
+
+  <pre>user = {{user | json}}</pre>
+</form>
