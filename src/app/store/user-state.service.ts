@@ -38,4 +38,10 @@ export class UserStateService extends StateService<UserStateInterface> {
     })
   }
 
+  selectUser(user: UserInterface) {
+    this.setState({
+      selectedUserId: user.id
+    })
+  }
+
 }
