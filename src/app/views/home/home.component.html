@@ -24,8 +24,10 @@
     <td>
       <div class="btn-group" role="group">
         <a (click)="selectUser(user)" [routerLink]="['/read', user.id]" class="btn btn-info" type="button">Read</a>
-        <a (click)="selectUser(user)" [routerLink]="['/update', user.id]" class="btn warning" type="button">Update</a>
-        <a (click)="selectUser(user)" [routerLink]="['/delete', user.id]" class="btn danger" type="button">Delete</a>
+        <a (click)="selectUser(user)" [routerLink]="['/update', user.id]" class="btn btn-warning"
+           type="button">Update</a>
+        <a (click)="selectUser(user)" [routerLink]="['/delete', user.id]" class="btn btn-danger"
+           type="button">Delete</a>
       </div>
     </td>
   </tr>
