@@ -30,4 +30,8 @@ export class UserService {
   deleteUser(user: User): Observable<void> {
     return this.httpClient.delete<void>(apiUrl + user.id);
   }
+
+  getUser(user: User): Observable<User> {
+    return this.httpClient.get<User>(apiUrl + user.id);
+  }
 }
