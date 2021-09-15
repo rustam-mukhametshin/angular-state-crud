@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserInterface } from '../../store/user-interface';
+import { UserStateService } from '../../store/user-state.service';
 
 @Component({
   selector: 'app-create',
@@ -12,7 +13,9 @@ export class CreateComponent implements OnInit {
   disabled: boolean = false;
   user: UserInterface | undefined;
 
-  constructor() {
+  constructor(
+    private readonly userStateService: UserStateService
+  ) {
     this.userForm = new FormGroup({
       id: new FormControl('', [Validators.required]),
       username: new FormControl('', [Validators.required]),
@@ -29,6 +32,15 @@ export class CreateComponent implements OnInit {
   }
 
   submit() {
+    if (this.userForm.errors) {
+      return;
+    }
+    // Todo: UUID
+    const newUser: UserInterface = {
+      id: 123,
+      ...this.userForm.value,
+    } as UserInterface;
 
+    this.userStateService.create(newUser);
   }
 }
