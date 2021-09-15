@@ -60,13 +60,15 @@ export class UserStateService extends StateService<UserStateInterface> {
     });
   }
 
-  delete(user: UserInterface) {
-    this.userService.deleteUser(user).subscribe(() => {
-      this.setState({
-        selectedUserId: undefined,
-        users: this.state.users.filter((item) => item.id !== user.id),
+  delete(user: UserInterface | undefined) {
+    if (user) {
+      this.userService.deleteUser(user).subscribe(() => {
+        this.setState({
+          selectedUserId: undefined,
+          users: this.state.users.filter((item) => item.id !== user.id),
+        });
       });
-    });
+    }
   }
 
   update(user: UserInterface) {
