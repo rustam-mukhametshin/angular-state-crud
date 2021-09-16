@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { UserStateService } from './user-state.service';
 import { UserInterface } from './user-interface';
+import { Observable } from 'rxjs';
 
 @Injectable(
   {
@@ -17,7 +18,7 @@ export class UserFacadeService extends UserStateService {
     this.delete(user);
   }
 
-  createUser(newUser: UserInterface) {
-    this.create(newUser);
+  createUser(newUser: UserInterface): Observable<UserInterface> {
+    return this.create(newUser);
   }
 }
