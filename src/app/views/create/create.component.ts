@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserInterface } from '../../store/user-interface';
-import { UserStateService } from '../../store/user-state.service';
+import { UserFacadeService } from '../../store/user-facade.service';
 
 @Component({
   selector: 'app-create',
@@ -14,7 +14,7 @@ export class CreateComponent implements OnInit {
   user: UserInterface | undefined;
 
   constructor(
-    private readonly userStateService: UserStateService
+    private readonly userFacadeService: UserFacadeService
   ) {
     this.form = new FormGroup({
       id: new FormControl('', [Validators.required]),
@@ -41,6 +41,6 @@ export class CreateComponent implements OnInit {
       ...this.form.value,
     } as UserInterface;
 
-    this.userStateService.create(newUser);
+    this.userFacadeService.createUser(newUser);
   }
 }

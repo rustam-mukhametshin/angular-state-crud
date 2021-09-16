@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { UserStateService } from '../../store/user-state.service';
 import { take } from 'rxjs/operators';
+import { UserFacadeService } from '../../store/user-facade.service';
 
 @Component({
   selector: 'app-delete',
@@ -12,17 +12,17 @@ export class DeleteComponent implements OnInit {
   successMsg: any;
 
   constructor(
-    private readonly userStateService: UserStateService
+    private readonly userFacadeService: UserFacadeService
   ) {
   }
 
   ngOnInit(): void {
-    this.userStateService.selectedUser$
+    this.userFacadeService.selectedUser$
       .pipe(
         take(1)
       )
       .subscribe(user => {
-        this.userStateService.delete(user);
+        this.userFacadeService.deleteUser(user);
       })
   }
 

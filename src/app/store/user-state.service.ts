@@ -51,7 +51,7 @@ export class UserStateService extends StateService<UserStateInterface> {
 
   // Service API
 
-  create(user: UserInterface) {
+  protected create(user: UserInterface) {
     this.userService.createUser(user).subscribe((newUser) => {
       this.setState({
         users: [...this.state.users, newUser],
@@ -60,7 +60,7 @@ export class UserStateService extends StateService<UserStateInterface> {
     });
   }
 
-  delete(user: UserInterface | undefined) {
+  protected delete(user: UserInterface | undefined) {
     if (user) {
       this.userService.deleteUser(user).subscribe(() => {
         this.setState({
@@ -71,7 +71,7 @@ export class UserStateService extends StateService<UserStateInterface> {
     }
   }
 
-  update(user: UserInterface) {
+  protected update(user: UserInterface) {
     this.userService.updateUser(user).subscribe((updatedUser) => {
       this.setState({
         users: this.state.users.map((item) => (item.id === user.id ? updatedUser : item)),

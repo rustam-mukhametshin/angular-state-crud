@@ -1,6 +1,7 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
 import { UserStateService } from '../../store/user-state.service';
 import { UserInterface, UserInterface as User } from '../../store/user-interface';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -11,21 +12,17 @@ import { UserInterface, UserInterface as User } from '../../store/user-interface
 export class HomeComponent implements OnInit {
 
   @Input()
-  users: User[] | undefined;
+  users$: Observable<User[]> | undefined;
 
   labels: string[] | undefined;
 
   constructor(
-    private readonly userStateService: UserStateService,
-    private readonly cdr: ChangeDetectorRef
+    private readonly userStateService: UserStateService
   ) {
-    this.userStateService.users$.subscribe(users => {
-      this.users = users;
-      cdr.markForCheck();
-    }) // Изменить на async pipe, все равно вызывает markForCheck();
   }
 
   ngOnInit(): void {
+    this.users$ = this.userStateService.users$;
     this.labels = [
       'ID',
       'Username',
