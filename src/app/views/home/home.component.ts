@@ -2,6 +2,7 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 import { UserStateService } from '../../store/user-state.service';
 import { UserInterface, UserInterface as User } from '../../store/user-interface';
 import { Observable } from 'rxjs';
+import { UserFacadeService } from '../../store/user-facade.service';
 
 @Component({
   selector: 'app-home',
@@ -17,12 +18,13 @@ export class HomeComponent implements OnInit {
   labels: string[] | undefined;
 
   constructor(
-    private readonly userStateService: UserStateService
+    private readonly userStateService: UserStateService,
+    private readonly userFacadeService: UserFacadeService
   ) {
   }
 
   ngOnInit(): void {
-    this.users$ = this.userStateService.users$;
+    this.users$ = this.userFacadeService.getUsers();
     this.labels = [
       'ID',
       'Username',
