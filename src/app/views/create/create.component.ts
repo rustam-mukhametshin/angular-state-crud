@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserInterface } from '../../store/user-interface';
 import { UserFacadeService } from '../../store/user-facade.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-create',
@@ -41,6 +42,9 @@ export class CreateComponent implements OnInit {
       ...this.form.value,
     } as UserInterface;
 
-    this.userFacadeService.createUser(newUser);
+    this.userFacadeService.createUser(newUser)
+      .pipe(first())
+      .subscribe()
+    ;
   }
 }

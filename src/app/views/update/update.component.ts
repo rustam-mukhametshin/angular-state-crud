@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserInterface } from '../../store/user-interface';
 import { UserFacadeService } from '../../store/user-facade.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-update',
@@ -42,7 +43,10 @@ export class UpdateComponent implements OnInit {
       ...this.form.value,
     } as UserInterface;
 
-    this.userFacadeService.updateUser(newUser);
+    this.userFacadeService.updateUser(newUser)
+      .pipe(first())
+      .subscribe()
+    ;
   }
 
 }

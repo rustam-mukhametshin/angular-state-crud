@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { take } from 'rxjs/operators';
+import { first, switchMap } from 'rxjs/operators';
 import { UserFacadeService } from '../../store/user-facade.service';
 
 @Component({
@@ -19,11 +19,10 @@ export class DeleteComponent implements OnInit {
   ngOnInit(): void {
     this.userFacadeService.selectedUser$
       .pipe(
-        take(1)
+        switchMap(user => this.userFacadeService.deleteUser(user)),
+        first()
       )
-      .subscribe(user => {
-        this.userFacadeService.deleteUser(user);
-      })
+      .subscribe()
   }
 
 
