@@ -10,12 +10,12 @@ import { Observable } from 'rxjs';
 )
 export class UserFacadeService extends UserStateService {
 
-  updateUser(user: UserInterface) {
-    this.update(user);
+  updateUser(user: UserInterface): Observable<UserInterface> {
+    return this.update(user);
   }
 
-  deleteUser(user: UserInterface | undefined) {
-    this.delete(user);
+  deleteUser(user: UserInterface | undefined): Observable<void> {
+    return this.delete(user);
   }
 
   createUser(newUser: UserInterface): Observable<UserInterface> {
