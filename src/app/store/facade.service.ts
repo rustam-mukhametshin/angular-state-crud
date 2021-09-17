@@ -26,6 +26,8 @@ export class FacadeService {
         break;
       case UserEnum.getUsers:
         return this.userStateService.users$;
+      default:
+        return this.userStateService.users$;
     }
   }
 }
