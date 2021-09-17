@@ -28,6 +28,8 @@ export class FacadeService {
         return this.userStateService.users$;
       case UserEnum.updateUser:
         return this.userStateService.update(user as UserInterface);
+      case UserEnum.deleteUser:
+        return this.userStateService.delete(user as UserInterface);
       case UserEnum.createUser:
         return this.userStateService.create(user as UserInterface);
       default:
