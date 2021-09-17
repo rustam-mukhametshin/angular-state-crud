@@ -16,7 +16,7 @@ const initialState: UserStateInterface = {
   providedIn: 'root'
 })
 export class UserStateService extends StateService<UserStateInterface> {
-  protected users$: Observable<UserInterface[]> = this.select(state => state.users)
+  users$: Observable<UserInterface[]> = this.select(state => state.users)
     .pipe(
       shareReplay({refCount: true, bufferSize: 1})
     )

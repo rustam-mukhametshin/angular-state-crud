@@ -21,8 +21,4 @@ export class UserFacadeService extends UserStateService {
   createUser(newUser: UserInterface): Observable<UserInterface> {
     return this.create(newUser);
   }
-
-  getUsers(): Observable<UserInterface[]> {
-    return this.users$;
-  }
 }
