@@ -10,11 +10,13 @@ import { Subject } from 'rxjs';
   templateUrl: './update.component.html',
   styleUrls: ['./update.component.css']
 })
-export class UpdateComponent implements OnInit {
+export class UpdateComponent implements OnInit, OnDestroy {
 
   form: FormGroup;
   disabled: boolean = false;
   user: UserInterface | undefined;
+
+  subj$ = new Subject<void>();
 
   constructor(
     private readonly userFacadeService: UserFacadeService
@@ -44,10 +46,16 @@ export class UpdateComponent implements OnInit {
       ...this.form.value,
     } as UserInterface;
 
+    // Todo: Сразу отписка
     this.userFacadeService.updateUser(newUser)
-      .pipe(first())
-      .subscribe()
-    ;
+      .pipe(
+        takeUntil(this.subj$)
+      ).subscribe();
+  }
+
+  ngOnDestroy(): void {
+    this.subj$.next();
+    this.subj$.complete();
   }
 
 }
