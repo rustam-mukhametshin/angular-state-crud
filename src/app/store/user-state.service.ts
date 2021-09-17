@@ -65,7 +65,7 @@ export class UserStateService extends StateService<UserStateInterface> {
       );
   }
 
-  protected delete(user: UserInterface | undefined): Observable<void> {
+  delete(user: UserInterface | undefined): Observable<void> {
     return this.userService.deleteUser(user)
       .pipe(
         tap(() => {
@@ -77,7 +77,7 @@ export class UserStateService extends StateService<UserStateInterface> {
       );
   }
 
-  protected update(user: UserInterface): Observable<UserInterface> {
+  update(user: UserInterface): Observable<UserInterface> {
     return this.userService.updateUser(user)
       .pipe(
         tap(updatedUser => {
