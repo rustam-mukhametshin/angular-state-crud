@@ -19,7 +19,7 @@ export class FacadeService {
   user(
     method: UserEnum,
     user?: UserInterface | null
-  ): Observable<UserInterface> | Observable<UserInterface[]> | void {
+  ): Observable<UserInterface> | Observable<UserInterface[]> | Observable<void> | void {
     switch (method) {
       case UserEnum.selectUser:
         this.userStateService.selectUser(user as UserInterface);
