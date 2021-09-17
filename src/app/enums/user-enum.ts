@@ -3,5 +3,6 @@ export enum UserEnum {
   getUsers,
   updateUser,
   deleteUser,
-  createUser
+  createUser,
+  selectedUser$
 }

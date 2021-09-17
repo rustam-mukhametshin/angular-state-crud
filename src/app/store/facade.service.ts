@@ -19,7 +19,7 @@ export class FacadeService {
   user(
     method: UserEnum,
     user?: UserInterface | null
-  ): Observable<UserInterface> | Observable<UserInterface[]> | Observable<void> | void {
+  ): Observable<UserInterface> | Observable<UserInterface[]> | Observable<void> | void | Observable<any> {
     switch (method) {
       case UserEnum.selectUser:
         this.userStateService.selectUser(user as UserInterface);
@@ -32,6 +32,8 @@ export class FacadeService {
         return this.userStateService.delete(user as UserInterface);
       case UserEnum.createUser:
         return this.userStateService.create(user as UserInterface);
+      case UserEnum.selectedUser$:
+        return this.userStateService.selectedUser$;
       default:
         return this.userStateService.users$;
     }
