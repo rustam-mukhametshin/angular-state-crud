@@ -26,6 +26,8 @@ export class FacadeService {
         break;
       case UserEnum.getUsers:
         return this.userStateService.users$;
+      case UserEnum.updateUser:
+        return this.userStateService.update(user as UserInterface);
       case UserEnum.createUser:
         return this.userStateService.create(user as UserInterface);
       default:
