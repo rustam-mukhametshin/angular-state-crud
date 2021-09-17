@@ -1,7 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { UserStateService } from '../../store/user-state.service';
 import { UserInterface } from '../../interfaces/user-interface';
 import { Observable } from 'rxjs';
+import { FacadeService } from '../../store/facade.service';
+import { UserEnum } from '../../enums/user-enum';
 
 @Component({
   selector: 'app-read',
@@ -11,10 +12,11 @@ import { Observable } from 'rxjs';
 })
 export class ReadComponent implements OnInit {
 
-  user$: Observable<UserInterface | undefined> = this.userStateService.selectedUser$;
+  user$: Observable<UserInterface | undefined> =
+    this.facadeService.user(UserEnum.selectedUser$) as Observable<UserInterface>;
 
   constructor(
-    private readonly userStateService: UserStateService
+    private readonly facadeService: FacadeService
   ) {
   }
 
