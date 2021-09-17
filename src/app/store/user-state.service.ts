@@ -51,7 +51,7 @@ export class UserStateService extends StateService<UserStateInterface> {
 
   // Service API
 
-  protected create(user: UserInterface): Observable<UserInterface> {
+  create(user: UserInterface): Observable<UserInterface> {
     return this.userService.createUser(user)
       .pipe(
         tap(
