@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserInterface } from '../../interfaces/user-interface';
-import { UserFacadeService } from '../../store/user-facade.service';
 import { first } from 'rxjs/operators';
+import { FacadeService } from '../../store/facade.service';
+import { UserEnum } from '../../enums/user-enum';
 
 @Component({
   selector: 'app-create',
@@ -15,7 +16,7 @@ export class CreateComponent implements OnInit {
   user: UserInterface | undefined;
 
   constructor(
-    private readonly userFacadeService: UserFacadeService
+    private readonly facadeService: FacadeService
   ) {
     this.form = new FormGroup({
       id: new FormControl('', [Validators.required]),
@@ -42,8 +43,8 @@ export class CreateComponent implements OnInit {
       ...this.form.value,
     } as UserInterface;
 
-    this.userFacadeService.createUser(newUser)
-      .pipe(first())
+    // @ts-ignore Todo:
+    this.facadeService.user(UserEnum.createUser, newUser).pipe(first())
       .subscribe()
     ;
   }
