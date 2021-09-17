@@ -1,9 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserInterface } from '../../interfaces/user-interface';
-import { UserFacadeService } from '../../store/user-facade.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { FacadeService } from '../../store/facade.service';
+import { UserEnum } from '../../enums/user-enum';
 
 @Component({
   selector: 'app-update',
@@ -19,7 +20,7 @@ export class UpdateComponent implements OnInit, OnDestroy {
   subj$ = new Subject<void>();
 
   constructor(
-    private readonly userFacadeService: UserFacadeService
+    private readonly facadeService: FacadeService
   ) {
     this.form = new FormGroup({
       id: new FormControl('', [Validators.required]),
@@ -47,10 +48,10 @@ export class UpdateComponent implements OnInit, OnDestroy {
     } as UserInterface;
 
     // Todo: Сразу отписка
-    this.userFacadeService.updateUser(newUser)
-      .pipe(
-        takeUntil(this.subj$)
-      ).subscribe();
+    // @ts-ignore
+    this.facadeService.user(UserEnum.updateUser, newUser).pipe(
+      takeUntil(this.subj$)
+    ).subscribe();
   }
 
   ngOnDestroy(): void {
