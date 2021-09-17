@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { StateService } from './state.service';
 import { Observable } from 'rxjs';
 import { shareReplay, tap } from 'rxjs/operators';
-import { UserInterface } from './user-interface';
-import { UserStateInterface } from './user-state-interface';
+import { UserInterface } from '../interfaces/user-interface';
+import { UserStateInterface } from '../interfaces/user-state-interface';
 import { UserService } from '../services/user.service';
 
 const initialState: UserStateInterface = {

@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { UserInterface } from '../../store/user-interface';
+import { UserInterface } from '../../interfaces/user-interface';
 import { UserFacadeService } from '../../store/user-facade.service';
-import { first } from 'rxjs/operators';
+import { takeUntil } from 'rxjs/operators';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-update',

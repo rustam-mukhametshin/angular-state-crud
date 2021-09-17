@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { UserInterface, UserInterface as User } from '../store/user-interface';
+import { UserInterface, UserInterface as User } from '../interfaces/user-interface';
 
 const apiUrl = 'https://jsonplaceholder.typicode.com/users';
 

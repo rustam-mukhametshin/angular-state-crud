@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { UserStateService } from './user-state.service';
-import { UserInterface } from './user-interface';
+import { UserInterface } from '../interfaces/user-interface';
 import { Observable } from 'rxjs';
 
 @Injectable(

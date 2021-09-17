@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { UserStateService } from '../../store/user-state.service';
-import { UserInterface } from '../../store/user-interface';
+import { UserInterface } from '../../interfaces/user-interface';
 import { Observable } from 'rxjs';
 
 @Component({

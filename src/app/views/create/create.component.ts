@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { UserInterface } from '../../store/user-interface';
+import { UserInterface } from '../../interfaces/user-interface';
 import { UserFacadeService } from '../../store/user-facade.service';
 import { first } from 'rxjs/operators';
 
