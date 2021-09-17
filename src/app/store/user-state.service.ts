@@ -56,10 +56,8 @@ export class UserStateService extends StateService<UserStateInterface> {
       .pipe(
         tap(
           newUser => {
-            this.setState({
-              users: [...this.state.users, newUser],
-              selectedUserId: newUser.id,
-            })
+            this.addUser(newUser);
+            this.selectUser(newUser);
           }
         )
       );
