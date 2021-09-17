@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { UserStateService } from '../../store/user-state.service';
 import { UserInterface, UserInterface as User } from '../../interfaces/user-interface';
 import { Observable } from 'rxjs';
-import { UserFacadeService } from '../../store/user-facade.service';
+import { FacadeService } from '../../store/facade.service';
+import { UserEnum } from '../../enums/user-enum';
 
 @Component({
   selector: 'app-home',
@@ -18,13 +18,12 @@ export class HomeComponent implements OnInit {
   labels: string[] | undefined;
 
   constructor(
-    private readonly userStateService: UserStateService,
-    private readonly userFacadeService: UserFacadeService
+    private readonly facadeService: FacadeService,
   ) {
   }
 
   ngOnInit(): void {
-    this.users$ = this.userFacadeService.getUsers();
+    this.users$ = this.facadeService.user(UserEnum.getUsers) as Observable<UserInterface[]>;
     this.labels = [
       'ID',
       'Username',
@@ -34,7 +33,7 @@ export class HomeComponent implements OnInit {
   }
 
   selectUser(user: UserInterface) {
-    this.userStateService.selectUser(user)
+    this.facadeService.user(UserEnum.selectUser, user);
   }
 
 }
