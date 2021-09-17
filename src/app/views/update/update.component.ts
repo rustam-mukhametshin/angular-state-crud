@@ -34,7 +34,7 @@ export class UpdateComponent implements OnInit, OnDestroy {
   }
 
   reset() {
-
+    this.form.reset();
   }
 
   submit() {
