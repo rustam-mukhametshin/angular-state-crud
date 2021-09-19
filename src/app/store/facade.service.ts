@@ -28,16 +28,16 @@ export class FacadeService {
   ): any {
     switch (method) {
       case UserEnum.selectUser:
-        this.userStateService.selectUser(user as UserInterface);
+        this.userStateService.selectUser(user);
         break;
       case UserEnum.getUsers:
         return this.userStateService.users$;
       case UserEnum.updateUser:
-        return this.userStateService.update(user as UserInterface);
+        return this.userStateService.update(user);
       case UserEnum.deleteUser:
-        return this.userStateService.delete(user as UserInterface);
+        return this.userStateService.delete(user);
       case UserEnum.createUser:
-        return this.userStateService.create(user as UserInterface);
+        return this.userStateService.create(user);
       case UserEnum.selectedUser$:
         return this.userStateService.selectedUser$;
       default:
