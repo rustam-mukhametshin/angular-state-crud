@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.users$ = this.facadeService.user(UserEnum.getUsers) as Observable<UserInterface[]>;
+    this.users$ = this.facadeService.user(UserEnum.getUsers);
     this.labels = [
       'ID',
       'Username',

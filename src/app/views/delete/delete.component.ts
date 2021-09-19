@@ -19,9 +19,8 @@ export class DeleteComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // @ts-ignore Todo
+
     this.facadeService.user(UserEnum.selectedUser$).pipe(
-      // @ts-ignore
       switchMap((user: UserInterface) => this.facadeService.user(UserEnum.deleteUser, user)),
       take(1)
     )

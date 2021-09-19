@@ -43,7 +43,6 @@ export class CreateComponent implements OnInit {
       ...this.form.value,
     } as UserInterface;
 
-    // @ts-ignore Todo:
     this.facadeService.user(UserEnum.createUser, newUser).pipe(first())
       .subscribe()
     ;

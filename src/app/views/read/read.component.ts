@@ -12,8 +12,7 @@ import { UserEnum } from '../../enums/user-enum';
 })
 export class ReadComponent implements OnInit {
 
-  user$: Observable<UserInterface | undefined> =
-    this.facadeService.user(UserEnum.selectedUser$) as Observable<UserInterface>;
+  user$: Observable<UserInterface> = this.facadeService.user(UserEnum.selectedUser$);
 
   constructor(
     private readonly facadeService: FacadeService

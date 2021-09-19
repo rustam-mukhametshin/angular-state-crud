@@ -47,8 +47,7 @@ export class UpdateComponent implements OnInit, OnDestroy {
       ...this.form.value,
     } as UserInterface;
 
-    // Todo: Сразу отписка
-    // @ts-ignore
+
     this.facadeService.user(UserEnum.updateUser, newUser).pipe(
       takeUntil(this.subj$)
     ).subscribe();
