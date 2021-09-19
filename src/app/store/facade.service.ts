@@ -3,6 +3,11 @@ import { UserEnum } from '../enums/user-enum';
 import { UserStateService } from './user-state.service';
 import { UserInterface } from '../interfaces/user-interface';
 import { Observable } from 'rxjs';
+import { take } from 'rxjs/operators';
+
+export enum EnumStates {
+  User
+}
 
 @Injectable(
   {
@@ -14,6 +19,11 @@ export class FacadeService {
   constructor(
     private readonly userStateService: UserStateService,
   ) {
+    // Todo
+    // If error retry 3 time
+    this.init(EnumStates.User)
+      .pipe(take(1))
+      .subscribe();
   }
 
   user(method: UserEnum.selectUser, user: UserInterface): void
@@ -42,6 +52,21 @@ export class FacadeService {
         return this.userStateService.selectedUser$;
       default:
         return this.userStateService.users$;
+    }
+  }
+
+  /**
+   * Set initial values from <T>service API to <T>State
+   *
+   * @param type
+   * @private
+   */
+  init(type: EnumStates): Observable<any> {
+    switch (type) {
+      case EnumStates.User:
+        return this.userStateService.init();
+      default:
+        return this.userStateService.init();
     }
   }
 }
