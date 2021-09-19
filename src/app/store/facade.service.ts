@@ -16,10 +16,16 @@ export class FacadeService {
   ) {
   }
 
+  user(method: UserEnum.selectUser, user: UserInterface): void
+  user(method: UserEnum.getUsers): Observable<UserInterface[]>
+  user(method: UserEnum.updateUser, user: UserInterface): Observable<UserInterface>
+  user(method: UserEnum.deleteUser, user: UserInterface): Observable<void>
+  user(method: UserEnum.createUser, user: UserInterface): Observable<UserInterface>
+  user(method: UserEnum.selectedUser$): Observable<UserInterface>
   user(
-    method: UserEnum,
-    user?: UserInterface | null
-  ): Observable<UserInterface> | Observable<UserInterface[]> | Observable<void> | void | Observable<any> {
+    method: any,
+    user?: any
+  ): any {
     switch (method) {
       case UserEnum.selectUser:
         this.userStateService.selectUser(user as UserInterface);
