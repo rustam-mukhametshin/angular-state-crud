@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { StateService } from './state.service';
-import { Observable } from 'rxjs';
-import { shareReplay, tap } from 'rxjs/operators';
+import { Observable, of } from 'rxjs';
+import { shareReplay, switchMap, tap } from 'rxjs/operators';
 import { UserInterface } from '../interfaces/user-interface';
 import { UserStateInterface } from '../interfaces/user-state-interface';
 import { UserService } from '../services/user.service';
@@ -86,8 +86,14 @@ export class UserStateService extends StateService<UserStateInterface> {
       );
   }
 
-  private init() {
-    this.userService.getUsers().subscribe(users => this.setState({users}))
+  init(): Observable<null> {
+    return this.userService.getUsers()
+      .pipe(
+        switchMap(users => {
+          this.setState({users});
+          return of(null);
+        })
+      );
   }
 
 }
