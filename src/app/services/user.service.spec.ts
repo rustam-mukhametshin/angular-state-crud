@@ -69,6 +69,15 @@ describe('TestService', () => {
       return of(getAddedUser);
     })
 
+    // Todo: Think
+    userServiceSpy.deleteUser.and.callFake((user: UserInterface | undefined) => {
+      const i = fixtureData.users.findIndex((el, index) => {
+        return el.id === user?.id ? index - 1 : -1;
+      });
+      fixtureData.users.splice(i, 1);
+      return of(undefined);
+    })
+
     userServiceSpy.createUser.and.callFake((user: UserInterface) => {
       // Todo: Do I need it?
       fixtureData.users.push(user);
@@ -118,7 +127,14 @@ describe('TestService', () => {
         done();
       })
   });
-
+  // Todo: Think
+  it('#deleteUser should delete User', done => {
+    service.deleteUser(fixtureData.user).pipe(take(1))
+      .subscribe(res => {
+        expect(res).toBeFalsy();
+        done();
+      })
+  });
   it('#getUser should get User', done => {
     service.getUser(fixtureData.user)
       .pipe(take(1))
