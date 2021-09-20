@@ -10,6 +10,9 @@ import { ReadComponent } from './views/read/read.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRouterModule } from './app-router.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ParentDynamicComponent } from './views/parent-dynamic/parent-dynamic.component';
+import { ChildDynamicComponent } from './views/child-dynamic/child-dynamic.component';
+import { ShowDynamicDirective } from './directives/show-dynamic.directive';
 
 const modules = [
   BrowserModule,
@@ -26,6 +29,9 @@ const modules = [
     DeleteComponent,
     HomeComponent,
     ReadComponent,
+    ParentDynamicComponent,
+    ChildDynamicComponent,
+    ShowDynamicDirective,
   ],
   imports: [
     ...modules,
