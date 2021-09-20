@@ -10,7 +10,7 @@ import { UserInterface } from '../interfaces/user-interface';
 import { v4 as uid } from 'uuid';
 import SpyObj = jasmine.SpyObj;
 
-describe('TestService', () => {
+describe('UserService', () => {
   let service: UserService;
   const userServiceSpy = jasmine.createSpyObj(UserService, [
     'getUsers',
