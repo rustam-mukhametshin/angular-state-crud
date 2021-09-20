@@ -42,7 +42,6 @@ export class ParentDynamicComponent implements OnInit, OnDestroy {
     viewContainerRef.clear();
     // if (check) {
     const componentRef = viewContainerRef.createComponent<ChildDynamicComponent>(componentFactory);
-    console.log(componentRef);
     componentRef.instance.title = `Child - Wow here is dynamic data ${Date.now()}`;
     // } else {
     //   viewContainerRef.clear();
