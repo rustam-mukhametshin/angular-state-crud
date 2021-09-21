@@ -16,7 +16,6 @@ import { AppRouterModule } from './app-router.module';
 import { ParentDynamicComponent } from './views/parent-dynamic/parent-dynamic.component';
 import { ChildDynamicComponent } from './views/child-dynamic/child-dynamic.component';
 import { ShowDynamicDirective } from './directives/show-dynamic.directive';
-import { CustomAsyncValidatorDirective } from './directives/custom-async-validator.directive';
 
 const modules = [
   BrowserModule,
