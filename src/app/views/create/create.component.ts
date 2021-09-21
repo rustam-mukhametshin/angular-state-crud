@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormGroup, Validators } from '@angular/forms';
 import { UserInterface } from '../../interfaces/user-interface';
 import { first } from 'rxjs/operators';
 import { FacadeService } from '../../store/facade.service';
 import { UserEnum } from '../../enums/user-enum';
+import { FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
   selector: 'app-create',
@@ -14,16 +15,52 @@ export class CreateComponent implements OnInit {
   form: FormGroup;
   disabled: boolean = false;
   user: UserInterface | undefined;
+  model!: {};
+  fields!: FormlyFieldConfig[];
 
   constructor(
     private readonly facadeService: FacadeService
   ) {
-    this.form = new FormGroup({
-      id: new FormControl('', [Validators.required]),
-      username: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.email, Validators.required]),
-      phone: new FormControl('', [Validators.required])
-    })
+    this.form = new FormGroup({});
+    this.model = {};
+    this.fields = [
+      {
+        key: 'username',
+        type: 'input',
+        templateOptions: {
+          label: 'User name',
+          placeholder: 'Enter name',
+          required: true,
+        },
+        validators: [
+          Validators.required
+        ]
+      },
+      {
+        key: 'email',
+        type: 'input',
+        templateOptions: {
+          label: 'Email address',
+          placeholder: 'Enter email',
+          required: true,
+          type: 'email',
+        },
+        validators: [
+          Validators.email,
+          Validators.required
+        ]
+      },
+      {
+        key: 'phone',
+        type: 'input',
+        templateOptions: {
+          label: 'Phone',
+          placeholder: 'Enter phone',
+          type: 'tel',
+        },
+        validators: []
+      },
+    ];
   }
 
   ngOnInit(): void {
