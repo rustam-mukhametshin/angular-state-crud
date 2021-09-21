@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { FormlyModule } from '@ngx-formly/core';
+import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { AppComponent } from './app.component';
 import { CreateComponent } from './views/create/create.component';
 import { UpdateComponent } from './views/update/update.component';
@@ -13,12 +15,15 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { ParentDynamicComponent } from './views/parent-dynamic/parent-dynamic.component';
 import { ChildDynamicComponent } from './views/child-dynamic/child-dynamic.component';
 import { ShowDynamicDirective } from './directives/show-dynamic.directive';
+import { CustomAsyncValidatorDirective } from './directives/custom-async-validator.directive';
 
 const modules = [
   BrowserModule,
   HttpClientModule,
   AppRouterModule,
   ReactiveFormsModule,
+  FormlyModule.forRoot({extras: {lazyRender: true}}),
+  FormlyBootstrapModule,
 ]
 
 @NgModule({
