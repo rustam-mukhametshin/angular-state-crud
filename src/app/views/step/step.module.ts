@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormComponent } from './form/form.component';
 import { ListComponent } from './list/list.component';
 import { StepRouterModule } from './step.router.module';
+import { SharedModule } from '../../modules/shared.module';
 
 const modules = [
-  CommonModule,
+  SharedModule,
   StepRouterModule,
 ]
 
