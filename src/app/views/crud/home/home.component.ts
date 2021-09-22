@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { UserInterface, UserInterface as User } from '../../interfaces/user-interface';
+import { UserInterface, UserInterface as User } from '../../../interfaces/user-interface';
 import { Observable } from 'rxjs';
-import { FacadeService } from '../../store/facade.service';
-import { UserEnum } from '../../enums/user-enum';
+import { FacadeService } from '../../../store/facade.service';
+import { UserEnum } from '../../../enums/user-enum';
 
 @Component({
   selector: 'app-home',

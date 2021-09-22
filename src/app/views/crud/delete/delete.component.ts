@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { switchMap, take } from 'rxjs/operators';
-import { FacadeService } from '../../store/facade.service';
-import { UserEnum } from '../../enums/user-enum';
-import { UserInterface } from '../../interfaces/user-interface';
+import { FacadeService } from '../../../store/facade.service';
+import { UserEnum } from '../../../enums/user-enum';
+import { UserInterface } from '../../../interfaces/user-interface';
 
 @Component({
   selector: 'app-delete',

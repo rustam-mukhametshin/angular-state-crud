@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './views/home/home.component';
-import { CreateComponent } from './views/create/create.component';
-import { UpdateComponent } from './views/update/update.component';
-import { ReadComponent } from './views/read/read.component';
-import { DeleteComponent } from './views/delete/delete.component';
+import { HomeComponent } from './views/crud/home/home.component';
+import { CreateComponent } from './views/crud/create/create.component';
+import { UpdateComponent } from './views/crud/update/update.component';
+import { ReadComponent } from './views/crud/read/read.component';
+import { DeleteComponent } from './views/crud/delete/delete.component';
 
 
 const routes: Routes = [

@@ -1,8 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { UserInterface } from '../../interfaces/user-interface';
+import { UserInterface } from '../../../interfaces/user-interface';
 import { Observable } from 'rxjs';
-import { FacadeService } from '../../store/facade.service';
-import { UserEnum } from '../../enums/user-enum';
+import { FacadeService } from '../../../store/facade.service';
+import { UserEnum } from '../../../enums/user-enum';
 
 @Component({
   selector: 'app-read',

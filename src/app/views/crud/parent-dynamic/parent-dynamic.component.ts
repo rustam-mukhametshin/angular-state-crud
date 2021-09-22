@@ -1,7 +1,7 @@
 import { Component, ComponentFactoryResolver, Inject, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { ShowDynamicDirective } from '../../directives/show-dynamic.directive';
+import { ShowDynamicDirective } from '../../../directives/show-dynamic.directive';
 import { ChildDynamicComponent } from '../child-dynamic/child-dynamic.component';
-import { PAGE_VISIBILITY } from '../../tokens/page-visibility.token';
+import { PAGE_VISIBILITY } from '../../../tokens/page-visibility.token';
 import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 

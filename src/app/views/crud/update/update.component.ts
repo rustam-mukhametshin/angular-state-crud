@@ -1,10 +1,10 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { UserInterface } from '../../interfaces/user-interface';
+import { UserInterface } from '../../../interfaces/user-interface';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
-import { FacadeService } from '../../store/facade.service';
-import { UserEnum } from '../../enums/user-enum';
+import { FacadeService } from '../../../store/facade.service';
+import { UserEnum } from '../../../enums/user-enum';
 
 @Component({
   selector: 'app-update',

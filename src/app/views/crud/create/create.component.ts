@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, Validators } from '@angular/forms';
-import { UserInterface } from '../../interfaces/user-interface';
+import { UserInterface } from '../../../interfaces/user-interface';
 import { first } from 'rxjs/operators';
-import { FacadeService } from '../../store/facade.service';
-import { UserEnum } from '../../enums/user-enum';
+import { FacadeService } from '../../../store/facade.service';
+import { UserEnum } from '../../../enums/user-enum';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
