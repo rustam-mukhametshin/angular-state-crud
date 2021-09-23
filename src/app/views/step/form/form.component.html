@@ -1,1 +1,16 @@
-<p>form works!</p>
+<div class="row mt-5">
+  <div class="col-6" style="margin: 0 auto;">
+    <form (ngSubmit)="submit()" [formGroup]="form">
+
+
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Title</h5>
+          <p class="card-text">{{model | json}}</p>
+        </div>
+      </div>
+
+      <formly-form [fields]="fields" [form]="form" [model]="model" [options]="options"></formly-form>
+    </form>
+  </div>
+</div>
