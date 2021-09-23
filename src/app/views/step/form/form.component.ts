@@ -1,11 +1,18 @@
 import { Component } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
+import { STEPPER_GLOBAL_OPTIONS } from '@angular/cdk/stepper';
 
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  styleUrls: ['./form.component.css'],
+  providers: [
+    {
+      provide: STEPPER_GLOBAL_OPTIONS,
+      useValue: {showError: true}
+    }
+  ]
 })
 export class FormComponent {
 
@@ -126,6 +133,14 @@ export class FormComponent {
             type: 'input',
             templateOptions: {
               label: 'Last info',
+              required: true,
+            },
+          },
+          {
+            key: 'last2',
+            type: 'input',
+            templateOptions: {
+              label: 'Last info 2',
               required: true,
             },
           },
