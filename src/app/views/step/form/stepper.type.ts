@@ -40,6 +40,13 @@ import { FieldType, FormlyFieldConfig } from '@ngx-formly/core';
 
     </mat-horizontal-stepper>
   `,
+  styles: [
+    `
+      button {
+        margin-right: 2px
+      }
+    `
+  ]
 })
 export class FormlyFieldStepper extends FieldType {
   // @ts-ignore
