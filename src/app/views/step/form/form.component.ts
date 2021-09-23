@@ -10,7 +10,21 @@ import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 export class FormComponent {
 
   form = new FormGroup({});
-  model: any = {};
+
+  mainModel: any = {
+    model: {},
+    predefined: {
+      copy: 'copy',
+      country: 'Country copy',
+      date: new Date(),
+      last: 'Last copy',
+      last2: 'Last 2',
+      project: 'Project '
+    },
+    empty: {
+      copy: 'move',
+    },
+  }
   options: FormlyFormOptions = {};
 
   existingProjects = [
@@ -28,13 +42,31 @@ export class FormComponent {
           {
             key: 'copy',
             type: 'select',
+            defaultValue: '',
             templateOptions: {
               label: 'Copy',
               required: true,
               options: [
                 {label: 'Move', value: 'move'},
                 {label: 'Copy', value: 'copy'},
-              ]
+              ],
+              change: e => {
+                const value = e.formControl?.value;
+                if (value !== null) {
+                  if (value === 'move') {
+                    this.mainModel.model = {
+                      ...this.mainModel.model,
+                      ...this.mainModel.predefined
+                    };
+                  } else if (value === 'copy') {
+                    this.mainModel.model = this.mainModel.empty
+                  }
+                }
+
+              },
+              click: e => {
+                console.log(e);
+              },
             },
           },
           {
@@ -103,7 +135,6 @@ export class FormComponent {
   }];
 
   submit() {
-    alert(JSON.stringify(this.model));
+    alert(JSON.stringify(this.mainModel.model));
   }
-
 }
