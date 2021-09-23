@@ -18,6 +18,12 @@ import { FieldType, FormlyFieldConfig } from '@ngx-formly/core';
             </button>
 
             <button matStepperNext *ngIf="!last"
+                    class="btn btn-primary mr-2" type="button"
+                    [disabled]="!isValid(step)">
+              Cancel
+            </button>
+
+            <button matStepperNext *ngIf="!last"
                     class="btn btn-primary" type="button"
                     [disabled]="!isValid(step)">
               Next
