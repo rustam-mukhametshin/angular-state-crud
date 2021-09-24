@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MoveCopyInterface } from '../move-copy.interface';
+import { StepInterface } from '../../../interfaces/step.interface';
 
 @Component({
   selector: 'app-info',
@@ -9,7 +9,7 @@ import { MoveCopyInterface } from '../move-copy.interface';
 export class InfoComponent implements OnInit {
 
   // Todo: remove any type
-  @Input() model!: MoveCopyInterface | any;
+  @Input() model!: StepInterface | any;
   @Input() title!: string;
 
   constructor() {

@@ -1,4 +1,4 @@
-export interface MoveCopyInterface {
+export interface StepInterface {
   contextName: string;
   contextID: number;
   serverNameFirst: string;
