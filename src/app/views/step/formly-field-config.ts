@@ -115,6 +115,78 @@ export class FormlyFieldConfigCustom {
                 required: true,
               },
             },
+            {
+              key: 'destinationServer',
+              type: 'select',
+              templateOptions: {
+                label: FormKeyLabels.destinationServer,
+                required: true,
+                placeholder: 'Please select from list of search',
+              },
+            },
+            {
+              key: 'inboundEmailUniqueName',
+              type: 'input',
+              templateOptions: {
+                label: FormKeyLabels.inboundEmailUniqueName,
+                required: true,
+                placeholder: '',
+              },
+            },
+            {
+              key: 'targetContextName',
+              type: 'input',
+              templateOptions: {
+                label: FormKeyLabels.targetContextName,
+                required: true,
+                placeholder: '',
+              },
+            },
+            {
+              key: 'serverName',
+              type: 'input',
+              templateOptions: {
+                label: FormKeyLabels.serverName,
+                required: false,
+                placeholder: '',
+              },
+            },
+            {
+              key: 'includeHistory',
+              type: 'select',
+              templateOptions: {
+                label: FormKeyLabels.includeHistory,
+                required: false,
+                placeholder: 'Please select from list',
+              },
+            },
+            {
+              key: 'migrationOfSourceDocumentsIncluded',
+              type: 'select',
+              templateOptions: {
+                label: FormKeyLabels.migrationOfSourceDocumentsIncluded,
+                required: false,
+                placeholder: 'Please select from list',
+              },
+            },
+            {
+              key: 'copyUserAccountsOfSource',
+              type: 'select',
+              templateOptions: {
+                label: FormKeyLabels.copyUserAccountsOfSource,
+                required: false,
+                placeholder: 'Please select from list',
+              },
+            },
+            {
+              key: 'serverWideAccess',
+              type: 'select',
+              templateOptions: {
+                label: FormKeyLabels.serverWideAccess,
+                required: false,
+                placeholder: 'Please select from list',
+              },
+            },
           ],
         },
         {
