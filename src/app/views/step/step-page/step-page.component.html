@@ -1,1 +1,23 @@
-<p>step-page works!</p>
+<div class="container" style="margin: 0 auto;">
+
+  <div class="row mt-3">
+    <div class="col">
+      <app-step></app-step>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col">
+      <app-info [model]="mainModel.model"></app-info>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col">
+      <form (ngSubmit)="submit()" [formGroup]="form">
+
+        <formly-form [fields]="fields" [form]="form" [model]="mainModel.model" [options]="options"></formly-form>
+      </form>
+    </div>
+  </div>
+</div>
