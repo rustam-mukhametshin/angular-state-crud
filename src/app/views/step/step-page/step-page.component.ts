@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { FormlyFieldConfigCustom } from '../formly-field-config';
@@ -6,7 +6,8 @@ import { FormlyFieldConfigCustom } from '../formly-field-config';
 @Component({
   selector: 'app-step-page',
   templateUrl: './step-page.component.html',
-  styleUrls: ['./step-page.component.css']
+  styleUrls: ['./step-page.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class StepPageComponent {
 
