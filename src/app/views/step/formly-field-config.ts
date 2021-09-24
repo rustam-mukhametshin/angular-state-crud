@@ -77,6 +77,7 @@ export class FormlyFieldConfigCustom {
                 label: FormKeyLabels.executionDateTime,
                 placeholder: 'Select a date',
                 required: true,
+                type: 'date',
               },
               asyncValidators: {
                 uniqueUsername: {
