@@ -1,1 +1,11 @@
-<p>info works!</p>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Title</h5>
+    <div *ngFor="let i of model | keyvalue">
+      <p class="card-text">
+        <b>{{i.key}}: &nbsp;</b>
+        <span>{{i.value}}</span>
+      </p>
+    </div>
+  </div>
+</div>
