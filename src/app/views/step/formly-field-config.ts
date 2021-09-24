@@ -8,6 +8,11 @@ export enum StepLabels {
   fourth = 'LAST INFORMATION'
 }
 
+export enum FormKeyLabels {
+  typeOfRequest = 'Type of request',
+  executionDateTime = 'Execution date/time',
+}
+
 export class FormlyFieldConfigCustom {
   mainModel: any = {
     model: {},
@@ -38,11 +43,11 @@ export class FormlyFieldConfigCustom {
           templateOptions: {label: StepLabels.first},
           fieldGroup: [
             {
-              key: 'copy',
+              key: 'typeOfRequest',
               type: 'select',
               defaultValue: '',
               templateOptions: {
-                label: 'Copy',
+                label: FormKeyLabels.typeOfRequest,
                 required: true,
                 options: [
                   {label: 'Move', value: 'move'},
@@ -65,10 +70,10 @@ export class FormlyFieldConfigCustom {
               },
             },
             {
-              key: 'project',
+              key: 'executionDateTime',
               type: 'input',
               templateOptions: {
-                label: 'Project Async valid',
+                label: FormKeyLabels.executionDateTime,
                 required: true,
               },
               asyncValidators: {
