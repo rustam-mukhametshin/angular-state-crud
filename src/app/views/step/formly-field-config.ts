@@ -108,11 +108,12 @@ export class FormlyFieldConfigCustom {
           templateOptions: {label: StepLabels.second},
           fieldGroup: [
             {
-              key: 'country',
-              type: 'input',
+              key: 'selectBackupDateTime',
+              type: 'select',
               templateOptions: {
-                label: 'Country',
+                label: FormKeyLabels.selectBackupDateTime,
                 required: true,
+                placeholder: 'Please select from list',
               },
             },
             {
