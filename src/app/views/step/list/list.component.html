@@ -1,1 +1,9 @@
-<p>list works!</p>
+<div class="row mt-5">
+  <div class="col d-flex justify-content-center">
+    <div *ngIf="users$ | async as users" class="border p-2">
+      <p *ngFor="let u of users">
+        <a [routerLink]="['/', 'step/form', u.id]">{{u.username}}</a>
+      </p>
+    </div>
+  </div>
+</div>

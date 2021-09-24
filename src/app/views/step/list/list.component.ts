@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-list',
@@ -7,10 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() {
+  users$!: Observable<any>;
+
+  constructor(
+    private readonly httpClient: HttpClient
+  ) {
   }
 
   ngOnInit(): void {
+    this.users$ = this.httpClient.get('https://jsonplaceholder.typicode.com/users');
   }
 
 }
