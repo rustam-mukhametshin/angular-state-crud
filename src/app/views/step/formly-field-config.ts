@@ -1,6 +1,13 @@
 import { FormControl } from '@angular/forms';
 import { FormlyFieldConfig } from '@ngx-formly/core';
 
+export enum StepLabels {
+  first = 'START REQUEST',
+  second = 'SOURCE INFORMATION',
+  third = 'DESTINATION INFORMATION',
+  fourth = 'LAST INFORMATION'
+}
+
 export class FormlyFieldConfigCustom {
   mainModel: any = {
     model: {},
@@ -28,7 +35,7 @@ export class FormlyFieldConfigCustom {
       type: 'stepper',
       fieldGroup: [
         {
-          templateOptions: {label: 'First'},
+          templateOptions: {label: StepLabels.first},
           fieldGroup: [
             {
               key: 'copy',
@@ -80,7 +87,7 @@ export class FormlyFieldConfigCustom {
           ],
         },
         {
-          templateOptions: {label: 'Second'},
+          templateOptions: {label: StepLabels.second},
           fieldGroup: [
             {
               key: 'country',
@@ -93,7 +100,7 @@ export class FormlyFieldConfigCustom {
           ],
         },
         {
-          templateOptions: {label: 'Third'},
+          templateOptions: {label: StepLabels.third},
           fieldGroup: [
             {
               key: 'day',
@@ -107,7 +114,7 @@ export class FormlyFieldConfigCustom {
           ],
         },
         {
-          templateOptions: {label: 'Fourth'},
+          templateOptions: {label: StepLabels.fourth},
           fieldGroup: [
             {
               key: 'last',
