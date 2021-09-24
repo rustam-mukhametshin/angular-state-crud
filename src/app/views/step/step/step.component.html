@@ -1,1 +1,36 @@
-<p>step works!</p>
+<mat-horizontal-stepper [linear]="true">
+  <div *ngFor="let step of field.fieldGroup; let index = index; let last = last;">
+    <mat-step [completed]="checkEditable(index, step)" [editable]="checkEditable(index, step)">
+      <ng-template matStepLabel>{{ step.templateOptions?.label }}</ng-template>
+      <!--Stepper должен быть отдельно -->
+      <formly-field [field]="step"></formly-field>
+
+      <div>
+        <button *ngIf="index !== 0" class="btn btn-primary"
+                matStepperPrevious
+                type="button">
+          Previous
+        </button>
+
+        <button *ngIf="!last" [disabled]="!isValid(step)"
+                class="btn btn-primary mr-2" matStepperNext
+                type="button">
+          Cancel
+        </button>
+
+        <button *ngIf="!last" [disabled]="!isValid(step)"
+                class="btn btn-primary" matStepperNext
+                type="button">
+          Next
+        </button>
+
+        <button *ngIf="last" [disabled]="!form.valid"
+                class="btn btn-primary"
+                type="submit">
+          Save
+        </button>
+      </div>
+    </mat-step>
+  </div>
+
+</mat-horizontal-stepper>
