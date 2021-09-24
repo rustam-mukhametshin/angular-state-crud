@@ -8,12 +8,16 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { FormlyModule } from '@ngx-formly/core';
 import { FormlyFieldStepper } from './form/stepper.type';
+import { InfoComponent } from './info/info.component';
+import { StepComponent } from './step/step.component';
 
 @NgModule({
   declarations: [
     FormComponent,
     ListComponent,
     FormlyFieldStepper,
+    InfoComponent,
+    StepComponent,
   ],
   imports: [
     SharedModule,
