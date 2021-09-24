@@ -10,6 +10,7 @@ export class InfoComponent implements OnInit {
 
   // Todo: remove any type
   @Input() model!: MoveCopyInterface | any;
+  @Input() title!: string;
 
   constructor() {
   }
