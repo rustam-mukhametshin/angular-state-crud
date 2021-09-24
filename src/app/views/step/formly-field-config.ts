@@ -11,6 +11,16 @@ export enum StepLabels {
 export enum FormKeyLabels {
   typeOfRequest = 'Type of request',
   executionDateTime = 'Execution date/time',
+
+  selectBackupDateTime = 'Select backup date/time for source context',
+  destinationServer = 'Destination server',
+  inboundEmailUniqueName = 'Inbound email unique name',
+  targetContextName = 'Target context name',
+  serverName = 'Server name (customer unique DNS)',
+  includeHistory = 'Include history (logging & audit information)',
+  migrationOfSourceDocumentsIncluded = 'Migration of source documents included',
+  copyUserAccountsOfSource = 'Copy user accounts of source',
+  serverWideAccess = 'Server wide access',
 }
 
 export class FormlyFieldConfigCustom {
