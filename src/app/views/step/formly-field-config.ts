@@ -12,6 +12,9 @@ export enum FormKeyLabels {
   typeOfRequest = 'Type of request',
   executionDateTime = 'Execution date/time',
 
+  turnOfAlertsOnSourceContext = 'Turn of alerts on source context',
+  setSourceDatabaseToLocked = 'Set source database to locked',
+
   selectBackupDateTime = 'Select backup date/time for source context',
   destinationServer = 'Destination server',
   inboundEmailUniqueName = 'Inbound email unique name',
@@ -21,6 +24,9 @@ export enum FormKeyLabels {
   migrationOfSourceDocumentsIncluded = 'Migration of source documents included',
   copyUserAccountsOfSource = 'Copy user accounts of source',
   serverWideAccess = 'Server wide access',
+
+  lastInfo = 'Last info',
+  lastInfo2 = 'Last info 2',
 }
 
 export class FormlyFieldConfigCustom {
@@ -49,6 +55,7 @@ export class FormlyFieldConfigCustom {
     {
       type: 'stepper',
       fieldGroup: [
+        //////// First
         {
           templateOptions: {label: StepLabels.first},
           fieldGroup: [
@@ -104,8 +111,33 @@ export class FormlyFieldConfigCustom {
             },
           ],
         },
+        //////// Second
         {
           templateOptions: {label: StepLabels.second},
+          fieldGroup: [
+            {
+              key: 'turnOfAlertsOnSourceContext',
+              type: 'select',
+              templateOptions: {
+                label: FormKeyLabels.turnOfAlertsOnSourceContext,
+                required: false,
+                placeholder: 'Please select from list',
+              },
+            },
+            {
+              key: 'setSourceDatabaseToLocked',
+              type: 'select',
+              templateOptions: {
+                label: FormKeyLabels.setSourceDatabaseToLocked,
+                required: false,
+                placeholder: 'Please select from list',
+              },
+            },
+          ],
+        },
+        //////// Third
+        {
+          templateOptions: {label: StepLabels.third},
           fieldGroup: [
             {
               key: 'selectBackupDateTime',
@@ -190,36 +222,23 @@ export class FormlyFieldConfigCustom {
             },
           ],
         },
-        {
-          templateOptions: {label: StepLabels.third},
-          fieldGroup: [
-            {
-              key: 'day',
-              type: 'input',
-              templateOptions: {
-                type: 'date',
-                label: 'Day',
-                required: true,
-              },
-            },
-          ],
-        },
+        //////// Last
         {
           templateOptions: {label: StepLabels.fourth},
           fieldGroup: [
             {
-              key: 'last',
+              key: 'lastInfo',
               type: 'input',
               templateOptions: {
-                label: 'Last info',
+                label: FormKeyLabels.lastInfo,
                 required: true,
               },
             },
             {
-              key: 'last2',
+              key: 'lastInfo2',
               type: 'input',
               templateOptions: {
-                label: 'Last info 2',
+                label: FormKeyLabels.lastInfo2,
                 required: true,
               },
             },
