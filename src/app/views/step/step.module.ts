@@ -7,7 +7,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatStepperModule } from '@angular/material/stepper';
 import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { FormlyModule } from '@ngx-formly/core';
-import { FormlyFieldStepper } from './form/stepper.type';
 import { InfoComponent } from './info/info.component';
 import { StepComponent } from './step/step.component';
 
@@ -15,7 +14,6 @@ import { StepComponent } from './step/step.component';
   declarations: [
     FormComponent,
     ListComponent,
-    FormlyFieldStepper,
     InfoComponent,
     StepComponent,
   ],
@@ -30,7 +28,7 @@ import { StepComponent } from './step/step.component';
         {name: 'required', message: 'This field is required'},
       ],
       types: [
-        {name: 'stepper', component: FormlyFieldStepper, wrappers: []},
+        {name: 'stepper', component: StepComponent, wrappers: []},
       ],
     }),
   ]
