@@ -15,7 +15,7 @@ const routes: Routes = [
     component: ListComponent,
   },
   {
-    path: 'form',
+    path: 'form/:id',
     component: FormComponent,
   }
 ]
