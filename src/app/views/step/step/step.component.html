@@ -1,4 +1,4 @@
-<mat-horizontal-stepper [linear]="true">
+<mat-horizontal-stepper *ngIf="field" [linear]="true">
   <div *ngFor="let step of field.fieldGroup; let index = index; let last = last;">
     <mat-step [completed]="checkEditable(index, step)" [editable]="checkEditable(index, step)">
       <ng-template matStepLabel>{{ step.templateOptions?.label }}</ng-template>
