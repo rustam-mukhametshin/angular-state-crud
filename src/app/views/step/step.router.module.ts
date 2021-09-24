@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { ListComponent } from './list/list.component';
-import { FormComponent } from './form/form.component';
+import { StepPageComponent } from './step-page/step-page.component';
 
 
 const routes: Routes = [
@@ -15,8 +15,8 @@ const routes: Routes = [
     component: ListComponent,
   },
   {
-    path: 'form/:id',
-    component: FormComponent,
+    path: 'page/:id',
+    component: StepPageComponent,
   }
 ]
 
