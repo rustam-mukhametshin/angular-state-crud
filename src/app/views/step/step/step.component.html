@@ -9,7 +9,7 @@
         <button *ngIf="index !== 0" class="btn btn-primary"
                 matStepperPrevious
                 type="button">
-          Previous
+          Back
         </button>
 
         <button *ngIf="!last" [disabled]="!isValid(step)"
@@ -21,7 +21,7 @@
         <button *ngIf="!last" [disabled]="!isValid(step)"
                 class="btn btn-primary" matStepperNext
                 type="button">
-          Next
+          Next Step
         </button>
 
         <button *ngIf="last" [disabled]="!form.valid"
