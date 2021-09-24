@@ -9,6 +9,7 @@ import { FormlyBootstrapModule } from '@ngx-formly/bootstrap';
 import { FormlyModule } from '@ngx-formly/core';
 import { InfoComponent } from './info/info.component';
 import { StepComponent } from './step/step.component';
+import { StepPageComponent } from './step-page/step-page.component';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { StepComponent } from './step/step.component';
     ListComponent,
     InfoComponent,
     StepComponent,
+    StepPageComponent,
   ],
   imports: [
     SharedModule,
