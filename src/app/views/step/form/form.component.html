@@ -1,23 +1,18 @@
-<div class="row mt-5">
-  <div class="col-6" style="margin: 0 auto;">
-    <form (ngSubmit)="submit()" [formGroup]="form">
+<div class="container" style="margin: 0 auto;">
+  <div class="row mt-3">
+    <div class="col">
+      <app-info [model]="mainModel.model"></app-info>
+    </div>
+  </div>
 
+  <div class="row mt-3">
+    <div class="col">
+      <form (ngSubmit)="submit()" [formGroup]="form">
 
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">Title</h5>
-          <div *ngFor="let i of mainModel.model | keyvalue">
-            <p class="card-text">
-              <b>{{i.key}}: &nbsp;</b>
-              <span>{{i.value}}</span>
-            </p>
-          </div>
-        </div>
-      </div>
+        <formly-form [fields]="fields" [form]="form" [model]="mainModel.model" [options]="options"></formly-form>
+      </form>
 
-      <formly-form [fields]="fields" [form]="form" [model]="mainModel.model" [options]="options"></formly-form>
-    </form>
-
-    Async data: {{existingProjects | json}}
+      Async data: {{existingProjects | json}}
+    </div>
   </div>
 </div>
