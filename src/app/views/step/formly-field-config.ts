@@ -49,6 +49,7 @@ export class FormlyFieldConfigCustom {
               templateOptions: {
                 label: FormKeyLabels.typeOfRequest,
                 required: true,
+                placeholder: 'Please select from list',
                 options: [
                   {label: 'Move', value: 'move'},
                   {label: 'Copy', value: 'copy'},
@@ -74,6 +75,7 @@ export class FormlyFieldConfigCustom {
               type: 'input',
               templateOptions: {
                 label: FormKeyLabels.executionDateTime,
+                placeholder: 'Select a date',
                 required: true,
               },
               asyncValidators: {
