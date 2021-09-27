@@ -21,6 +21,21 @@ export class StepService {
     localStorage.removeItem(CONFIG_KEY);
   }
 
+  /**
+   * Update config and return obs$ config
+   * @param config
+   */
+  update(config: StepInterface): Observable<StepInterface> {
+    const oldConfig = this.config;
+
+    this.config = {
+      ...oldConfig,
+      ...config
+    };
+
+    return of(this.config);
+  }
+
   init(): Observable<StepInterface> {
     if (!this.config) {
       this.config = this.getInitialConfig();
