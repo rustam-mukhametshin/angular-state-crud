@@ -19,4 +19,37 @@ export class StepService {
   clear() {
     localStorage.removeItem(CONFIG_KEY);
   }
+
+  init(): StepInterface {
+    if (!this.config) {
+      return this.config = this.getInitialConfig();
+    }
+
+    return this.config;
+  }
+
+  private getInitialConfig(): StepInterface {
+    return {
+      contextID: 0,
+      contextName: '',
+      copyUserAccountsOfSource: '',
+      destinationServer: '',
+      executionDateTime: new Date(),
+      inboundEmailUniqueName: '',
+      includeHistory: '',
+      lastInfo: '',
+      lastInfo2: '',
+      migrationOfSourceDocumentsIncluded: '',
+      requestDate: new Date(),
+      requestor: '',
+      selectBackupDateTime: '',
+      serverName: '',
+      serverNameFirst: '',
+      serverWideAccess: '',
+      setSourceDatabaseToLocked: '',
+      targetContextName: '',
+      turnOfAlertsOnSourceContext: '',
+      typeOfRequest: ''
+    }
+  }
 }
