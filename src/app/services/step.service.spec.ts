@@ -59,6 +59,12 @@ describe('StepService', () => {
       return of(data);
     });
 
+    serviceSpy.getConfig.and.callFake(() => {
+      localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(fixture.config));
+      const data = JSON.parse(<string>localStorage.getItem(LOCALSTORAGE_KEY));
+      return of(data);
+    })
+
     // Clear storage
     service.clear();
 
