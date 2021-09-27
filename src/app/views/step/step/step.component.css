@@ -5,3 +5,7 @@
 .mat-step-label.mat-step-label-active {
   display: none;
 }
+
+.mat-horizontal-stepper-header-container {
+  width: 50%;
+}
