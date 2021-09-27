@@ -1,22 +1,40 @@
 import { TestBed } from '@angular/core/testing';
 
 import { StepService } from './step.service';
+import { of } from 'rxjs';
+import { StepFixture } from './mocks/StepFixture';
+import SpyObj = jasmine.SpyObj;
 
 fdescribe('StepService', () => {
   let service: StepService;
-  const fixtureData = {
-    key: 'STATE_CONFIG_STEP',
-    value: 'someValue'
-  };
+  let serviceSpy = jasmine.createSpyObj(StepService, [
+    'init',
+    'clear',
+  ]) as SpyObj<StepService>;
+
+  let fixture: StepFixture;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [
+        {
+          provide: StepService,
+          useValue: serviceSpy
+        }
+      ]
+    });
     service = TestBed.inject(StepService);
+
+    fixture = new StepFixture();
   });
 
   beforeEach(() => {
+
+    serviceSpy.init.and.returnValue(of(fixture.config))
+
     // Clear storage
     service.clear();
+
   });
 
   it('should be created', () => {
@@ -26,7 +44,7 @@ fdescribe('StepService', () => {
   it('#init should init configs', done => {
     // Todo: Check also saved data
     service.init().subscribe(configs => {
-      expect(configs).toBeNull();
+      expect(configs).toEqual(fixture.config);
       done();
     });
   });
