@@ -3,6 +3,7 @@ import { TestBed } from '@angular/core/testing';
 import { StepService } from './step.service';
 import { of } from 'rxjs';
 import { StepFixture } from './mocks/StepFixture';
+import { StepInterface } from '../interfaces/step.interface';
 import SpyObj = jasmine.SpyObj;
 
 describe('StepService', () => {
@@ -10,6 +11,7 @@ describe('StepService', () => {
   let serviceSpy = jasmine.createSpyObj(StepService, [
     'init',
     'clear',
+    'update',
   ]) as SpyObj<StepService>;
   const LOCALSTORAGE_KEY = 'STATE_CONFIG_STEP';
 
@@ -38,6 +40,13 @@ describe('StepService', () => {
       localStorage.removeItem(LOCALSTORAGE_KEY);
     })
 
+    serviceSpy.update.and.callFake((config: StepInterface) => {
+      return of({
+        ...fixture.config,
+        ...config
+      })
+    })
+
     // Clear storage
     service.clear();
 
@@ -47,11 +56,21 @@ describe('StepService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('#init should init configs', done => {
+  it('#init should init configs and return configs', done => {
     // Todo: Check also saved data
     service.init().subscribe(configs => {
       expect(configs).toEqual(fixture.config);
       done();
     });
   });
+
+  it('#update should update configs and return it', done => {
+    service.update(fixture.config2)
+      .subscribe(config => {
+        expect(config).toEqual(fixture.config2);
+        done();
+      })
+  });
+
+
 });
