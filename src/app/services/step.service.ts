@@ -36,6 +36,13 @@ export class StepService {
     return of(this.config);
   }
 
+  /**
+   * Get config
+   */
+  getConfig(): Observable<StepInterface> {
+    return of(this.config);
+  }
+
   init(): Observable<StepInterface> {
     if (!this.config) {
       this.config = this.getInitialConfig();
