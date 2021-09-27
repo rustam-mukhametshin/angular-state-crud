@@ -12,6 +12,7 @@ describe('StepService', () => {
     'init',
     'clear',
     'update',
+    'getConfig'
   ]) as SpyObj<StepService>;
   const LOCALSTORAGE_KEY = 'STATE_CONFIG_STEP';
 
@@ -41,10 +42,17 @@ describe('StepService', () => {
     })
 
     serviceSpy.update.and.callFake((config: StepInterface) => {
-      return of({
+
+      const newData = {
         ...fixture.config,
         ...config
-      })
+      };
+
+      localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(newData));
+
+      const getNewData = JSON.parse(<string>localStorage.getItem(LOCALSTORAGE_KEY));
+
+      return of(getNewData);
     })
 
     // Clear storage
