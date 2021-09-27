@@ -34,8 +34,6 @@ describe('StepService', () => {
 
   beforeEach(() => {
 
-    serviceSpy.init.and.returnValue(of(fixture.config));
-
     // Clear localstorage
     serviceSpy.clear.and.callFake(() => {
       localStorage.removeItem(LOCALSTORAGE_KEY);
@@ -54,6 +52,12 @@ describe('StepService', () => {
 
       return of(getNewData);
     })
+
+    serviceSpy.init.and.callFake(() => {
+      localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(fixture.config));
+      const data = JSON.parse(<string>localStorage.getItem(LOCALSTORAGE_KEY));
+      return of(data);
+    });
 
     // Clear storage
     service.clear();
