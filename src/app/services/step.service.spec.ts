@@ -11,6 +11,7 @@ fdescribe('StepService', () => {
     'init',
     'clear',
   ]) as SpyObj<StepService>;
+  const LOCALSTORAGE_KEY = 'STATE_CONFIG_STEP';
 
   let fixture: StepFixture;
 
@@ -30,7 +31,12 @@ fdescribe('StepService', () => {
 
   beforeEach(() => {
 
-    serviceSpy.init.and.returnValue(of(fixture.config))
+    serviceSpy.init.and.returnValue(of(fixture.config));
+
+    // Clear localstorage
+    serviceSpy.clear.and.callFake(() => {
+      localStorage.removeItem(LOCALSTORAGE_KEY);
+    })
 
     // Clear storage
     service.clear();
