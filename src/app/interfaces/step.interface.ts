@@ -2,11 +2,11 @@ export interface StepInterface {
   contextName: string;
   contextID: number;
   serverNameFirst: string;
-  requestDate: Date,
+  requestDate: string,
   requestor: string;
 
   typeOfRequest: string;
-  executionDateTime: Date;
+  executionDateTime: string;
 
   turnOfAlertsOnSourceContext: string,
   setSourceDatabaseToLocked: string,
