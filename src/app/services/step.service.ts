@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
 import { StepInterface } from '../interfaces/step.interface';
 
 const CONFIG_KEY = 'STATE_CONFIG_STEP'
@@ -20,12 +21,12 @@ export class StepService {
     localStorage.removeItem(CONFIG_KEY);
   }
 
-  init(): StepInterface {
+  init(): Observable<StepInterface> {
     if (!this.config) {
-      return this.config = this.getInitialConfig();
+      this.config = this.getInitialConfig();
     }
 
-    return this.config;
+    return of(this.config);
   }
 
   private getInitialConfig(): StepInterface {
