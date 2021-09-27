@@ -5,7 +5,7 @@ import { of } from 'rxjs';
 import { StepFixture } from './mocks/StepFixture';
 import SpyObj = jasmine.SpyObj;
 
-fdescribe('StepService', () => {
+describe('StepService', () => {
   let service: StepService;
   let serviceSpy = jasmine.createSpyObj(StepService, [
     'init',
