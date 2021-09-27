@@ -1,7 +1,7 @@
 import { StepInterface } from '../../interfaces/step.interface';
 
 export class StepFixture {
-  step: StepInterface = {
+  config: StepInterface = {
     contextID: 1,
     contextName: 'Context 1',
     copyUserAccountsOfSource: '',
@@ -23,7 +23,7 @@ export class StepFixture {
     turnOfAlertsOnSourceContext: '',
     typeOfRequest: ''
   };
-  step2: StepInterface = {
+  config2: StepInterface = {
     contextID: 2,
     contextName: 'Context 2',
     copyUserAccountsOfSource: '',
@@ -45,7 +45,7 @@ export class StepFixture {
     turnOfAlertsOnSourceContext: '',
     typeOfRequest: ''
   }
-  steps: StepInterface[] = [
+  configs: StepInterface[] = [
     {
       contextID: 1,
       contextName: 'Context 1',
@@ -113,7 +113,7 @@ export class StepFixture {
       typeOfRequest: ''
     },
   ]
-  steps2: StepInterface[] = [
+  configs2: StepInterface[] = [
     {
       contextID: 4,
       contextName: 'Context 4',
