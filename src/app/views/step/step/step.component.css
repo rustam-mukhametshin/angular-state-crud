@@ -1,0 +1,7 @@
+.mat-step-label.mat-step-label-active.mat-step-label-selected {
+  display: block;
+}
+
+.mat-step-label.mat-step-label-active {
+  display: none;
+}

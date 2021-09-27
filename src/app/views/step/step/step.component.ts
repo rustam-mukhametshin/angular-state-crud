@@ -1,10 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { FieldType, FormlyFieldConfig } from '@ngx-formly/core';
 
 @Component({
   selector: 'app-step',
   templateUrl: './step.component.html',
-  styleUrls: ['./step.component.css']
+  styleUrls: ['./step.component.css'],
+  encapsulation: ViewEncapsulation.None,
 })
 export class StepComponent extends FieldType implements OnInit {
 
