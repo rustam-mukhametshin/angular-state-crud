@@ -31,7 +31,7 @@ export class UserStateService extends StateService<UserStateInterface> {
   ) {
     super(initialState);
 
-    this.init();
+    // this.init();
   }
 
   addUser(user: UserInterface) {
