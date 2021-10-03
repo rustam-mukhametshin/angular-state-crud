@@ -78,7 +78,7 @@ export class FacadeService {
   }
 
   step(method: StepEnum.updateConfigs, config: StepInterface): Observable<StepInterface>
-  step(method: StepEnum.getConfigs, config: StepInterface): Observable<StepInterface>
+  step(method: StepEnum.getConfigs): Observable<StepInterface>
   step(
     method: unknown,
     config?: unknown
