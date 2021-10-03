@@ -87,9 +87,9 @@ export class FacadeService {
       case StepEnum.updateConfigs:
         return this.stepStateService.update(config);
       case StepEnum.getConfigs:
-        return this.stepStateService.getConfig();
+        return this.stepStateService.configs$;
       default:
-        return this.stepStateService.getConfig();
+        return this.stepStateService.configs$;
     }
   }
 }
