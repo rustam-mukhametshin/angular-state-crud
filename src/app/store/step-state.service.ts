@@ -6,7 +6,28 @@ import { StepInterface } from '../interfaces/step.interface';
 import { shareReplay } from 'rxjs/operators';
 
 const initialState: StepStateInterface = {
-  configs: [],
+  configs: {
+    contextID: 0,
+    contextName: '',
+    copyUserAccountsOfSource: '',
+    destinationServer: '',
+    executionDateTime: '',
+    inboundEmailUniqueName: '',
+    includeHistory: '',
+    lastInfo: '',
+    lastInfo2: '',
+    migrationOfSourceDocumentsIncluded: '',
+    requestDate: '',
+    requestor: '',
+    selectBackupDateTime: '',
+    serverName: '',
+    serverNameFirst: '',
+    serverWideAccess: '',
+    setSourceDatabaseToLocked: '',
+    targetContextName: '',
+    turnOfAlertsOnSourceContext: '',
+    typeOfRequest: ''
+  },
 }
 
 @Injectable({
@@ -14,8 +35,8 @@ const initialState: StepStateInterface = {
 })
 export class StepStateService extends StateService<StepStateInterface> {
 
-  // Todo: why array?
-  configs$: Observable<StepInterface[]> = this.select(state => state.configs)
+
+  configs$: Observable<StepInterface> = this.select(state => state.configs)
     .pipe(
       shareReplay({refCount: true, bufferSize: 1})
     );
