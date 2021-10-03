@@ -40,7 +40,7 @@ export class StepService {
    * Get config
    */
   getConfig(): Observable<StepInterface> {
-    return of(this.config);
+    return this.init();
   }
 
   init(): Observable<StepInterface> {
