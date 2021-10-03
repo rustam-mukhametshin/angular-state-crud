@@ -4,9 +4,13 @@ import { UserStateService } from './user-state.service';
 import { UserInterface } from '../interfaces/user-interface';
 import { Observable } from 'rxjs';
 import { take } from 'rxjs/operators';
+import { StepEnum } from '../enums/step-enum';
+import { StepInterface } from '../interfaces/step.interface';
+import { StepStateService } from './step-state.service';
 
 export enum EnumStates {
-  User
+  User,
+  Step
 }
 
 @Injectable(
@@ -18,6 +22,7 @@ export class FacadeService {
 
   constructor(
     private readonly userStateService: UserStateService,
+    private readonly stepStateService: StepStateService,
   ) {
     // Todo
     // If error retry 3 time
@@ -61,12 +66,30 @@ export class FacadeService {
    * @param type
    * @private
    */
-  init(type: EnumStates): Observable<any> {
+  init(type: EnumStates): Observable<unknown> {
     switch (type) {
       case EnumStates.User:
         return this.userStateService.init();
+      case EnumStates.Step:
+        return this.stepStateService.init();
       default:
         return this.userStateService.init();
+    }
+  }
+
+  step(method: StepEnum.updateConfigs, config: StepInterface): Observable<StepInterface>
+  step(method: StepEnum.getConfigs, config: StepInterface): Observable<StepInterface>
+  step(
+    method: unknown,
+    config?: unknown
+  ): unknown {
+    switch (method) {
+      case StepEnum.updateConfigs:
+        return this.stepStateService.update(config);
+      case StepEnum.getConfigs:
+        return this.stepStateService.getConfig();
+      default:
+        return this.stepStateService.getConfig();
     }
   }
 }
