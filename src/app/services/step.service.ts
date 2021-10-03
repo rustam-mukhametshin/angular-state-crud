@@ -45,6 +45,7 @@ export class StepService {
 
   init(): Observable<StepInterface> {
     if (!this.config) {
+      // Set default config to localstorage
       this.config = this.getInitialConfig();
     }
 
