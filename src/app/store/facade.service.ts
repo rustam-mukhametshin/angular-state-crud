@@ -29,6 +29,10 @@ export class FacadeService {
     this.init(EnumStates.User)
       .pipe(take(1))
       .subscribe();
+
+    this.init(EnumStates.Step)
+      .pipe(take(1))
+      .subscribe();
   }
 
   user(method: UserEnum.selectUser, user: UserInterface): void
