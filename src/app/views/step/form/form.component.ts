@@ -17,17 +17,16 @@ export class FormComponent implements OnInit, OnDestroy {
   configs!: StepInterface;
 
   form = new FormGroup({});
-  mainModel: any;
-
-  initialFormConfigs!: FormlyFieldConfig[];
+  initialFormConfigs: FormlyFieldConfig[];
   options: FormlyFormOptions = {};
 
   private subs$ = new Subject<void>();
 
-  ngOnInit() {
-    this.mainModel = new FormlyFieldConfigCustom;
-    this.initialFormConfigs = this.mainModel.initialFormConfigs;
+  constructor() {
+    this.initialFormConfigs = FormlyFieldConfigCustom.initialFormConfigs;
+  }
 
+  ngOnInit() {
     this.configs$
       .pipe(takeUntil(this.subs$))
       .subscribe(data => {
