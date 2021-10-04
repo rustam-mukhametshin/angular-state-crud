@@ -1,1 +1,7 @@
-<span class="text-default">form</span>
+<form (ngSubmit)="submit()" [formGroup]="form">
+
+  <formly-form
+    [fields]="fields" [form]="form" [model]="mainModel.model"
+    [options]="options"
+  ></formly-form>
+</form>

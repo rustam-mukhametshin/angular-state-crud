@@ -1,11 +1,8 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormGroup } from '@angular/forms';
-import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { FacadeService } from '../../../store/facade.service';
 import { Observable } from 'rxjs';
 import { StepInterface } from '../../../interfaces/step.interface';
 import { StepEnum } from '../../../enums/step-enum';
-import { FormlyFieldConfigCustom } from '../formly-field-config';
 import { take } from 'rxjs/operators';
 
 @Component({
@@ -15,13 +12,6 @@ import { take } from 'rxjs/operators';
   encapsulation: ViewEncapsulation.None
 })
 export class StepPageComponent implements OnInit {
-
-  form = new FormGroup({});
-  mainModel: any;
-
-  options: FormlyFormOptions = {};
-
-  fields!: FormlyFieldConfig[];
 
   configs$!: Observable<StepInterface>;
 
@@ -34,17 +24,9 @@ export class StepPageComponent implements OnInit {
   ngOnInit() {
     this.configs$ = this.facadeService.step(StepEnum.getConfigs);
 
-    this.mainModel = new FormlyFieldConfigCustom;
-    this.fields = this.mainModel.fields;
-
     this.setInitialValues()
       .pipe(take(1))
     ;
-  }
-
-
-  submit() {
-    // alert(JSON.stringify(this.mainModel.model));
   }
 
   private setInitialValues() {
