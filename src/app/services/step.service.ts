@@ -23,14 +23,14 @@ export class StepService {
 
   /**
    * Update config and return obs$ config
-   * @param config
+   * @param configs
    */
-  update(config: StepInterface): Observable<StepInterface> {
+  update(configs: StepInterface): Observable<StepInterface> {
     const oldConfig = this.config;
 
     this.config = {
       ...oldConfig,
-      ...config
+      ...configs
     };
 
     return of(this.config);
