@@ -36,11 +36,28 @@ export class StepPageComponent implements OnInit {
 
     this.mainModel = new FormlyFieldConfigCustom;
     this.fields = this.mainModel.fields;
+
+    this.setInitialValues()
+      .pipe(take(1))
+    ;
   }
 
 
   submit() {
     // alert(JSON.stringify(this.mainModel.model));
+  }
+
+  private setInitialValues() {
+    // Todo: Change to ActivatedRoute
+    const obs: StepInterface = {
+      contextName: 'Demo Sales NL',
+      contextID: 47,
+      serverNameFirst: 'DEV3',
+      requestDate: '09/22/2021',
+      requestor: 'First Last name',
+    }
+
+    return this.facadeService.step(StepEnum.updateConfigs, obs);
   }
 
 }
