@@ -4,7 +4,6 @@ import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { FormlyFieldConfigCustom } from '../formly-field-config';
 import { Observable, Subject } from 'rxjs';
 import { StepInterface } from '../../../interfaces/step.interface';
-import { takeUntil } from 'rxjs/operators';
 
 @Component({
   selector: 'app-form',
@@ -14,7 +13,7 @@ import { takeUntil } from 'rxjs/operators';
 export class FormComponent implements OnInit, OnDestroy {
   @Input()
   configs$!: Observable<StepInterface>;
-  configs!: StepInterface;
+  configs: StepInterface = {};
 
   form = new FormGroup({});
   initialFormConfigs: FormlyFieldConfig[];
@@ -27,11 +26,13 @@ export class FormComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    /*
+    Update data on every change of input
     this.configs$
       .pipe(takeUntil(this.subs$))
       .subscribe(data => {
-        this.configs = data;
-      })
+        this.configs = {};
+      })*/
   }
 
   ngOnDestroy() {
