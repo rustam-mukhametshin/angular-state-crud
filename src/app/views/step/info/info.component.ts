@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { StepInterface } from '../../../interfaces/step.interface';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-info',
@@ -9,7 +10,7 @@ import { StepInterface } from '../../../interfaces/step.interface';
 export class InfoComponent implements OnInit {
 
   // Todo: remove any type
-  @Input() model!: StepInterface | any;
+  @Input() configs$!: Observable<StepInterface>;
   @Input() title!: string;
 
   constructor() {
