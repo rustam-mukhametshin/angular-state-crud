@@ -163,6 +163,10 @@ export class FormlyFieldConfigCustom {
                 label: FormKeyLabels.selectBackupDateTime,
                 required: true,
                 placeholder: 'Please select from list',
+                options: [
+                  {label: 'Yes', value: 'yes'},
+                  {label: 'No', value: 'no'},
+                ],
               },
             },
             {
@@ -173,6 +177,10 @@ export class FormlyFieldConfigCustom {
                 label: FormKeyLabels.destinationServer,
                 required: true,
                 placeholder: 'Please select from list of search',
+                options: [
+                  {label: 'Yes', value: 'yes'},
+                  {label: 'No', value: 'no'},
+                ],
               },
             },
             {
@@ -213,6 +221,10 @@ export class FormlyFieldConfigCustom {
                 label: FormKeyLabels.includeHistory,
                 required: false,
                 placeholder: 'Please select from list',
+                options: [
+                  {label: 'Yes', value: 'yes'},
+                  {label: 'No', value: 'no'},
+                ],
               },
             },
             {
@@ -223,6 +235,10 @@ export class FormlyFieldConfigCustom {
                 label: FormKeyLabels.migrationOfSourceDocumentsIncluded,
                 required: false,
                 placeholder: 'Please select from list',
+                options: [
+                  {label: 'Yes', value: 'yes'},
+                  {label: 'No', value: 'no'},
+                ],
               },
             },
             {
@@ -233,6 +249,10 @@ export class FormlyFieldConfigCustom {
                 label: FormKeyLabels.copyUserAccountsOfSource,
                 required: false,
                 placeholder: 'Please select from list',
+                options: [
+                  {label: 'Yes', value: 'yes'},
+                  {label: 'No', value: 'no'},
+                ],
               },
             },
             {
@@ -243,6 +263,10 @@ export class FormlyFieldConfigCustom {
                 label: FormKeyLabels.serverWideAccess,
                 required: false,
                 placeholder: 'Please select from list',
+                options: [
+                  {label: 'Yes', value: 'yes'},
+                  {label: 'No', value: 'no'},
+                ],
               },
             },
           ],
