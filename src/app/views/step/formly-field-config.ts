@@ -52,10 +52,12 @@ export class FormlyFieldConfigCustom {
         //////// First
         {
           templateOptions: {label: StepLabels.first},
+          fieldGroupClassName: 'row',
           fieldGroup: [
             {
               key: 'typeOfRequest',
               type: 'select',
+              className: 'col-7 mb-3',
               defaultValue: '',
               templateOptions: {
                 label: FormKeyLabels.typeOfRequest,
@@ -84,6 +86,7 @@ export class FormlyFieldConfigCustom {
             {
               key: 'executionDateTime',
               type: 'input',
+              className: 'col-7 mb-3',
               templateOptions: {
                 label: FormKeyLabels.executionDateTime,
                 placeholder: 'Select a date',
@@ -120,7 +123,7 @@ export class FormlyFieldConfigCustom {
             {
               key: 'turnOfAlertsOnSourceContext',
               type: 'select',
-              className: 'col-6',
+              className: 'col-7 mb-3',
               templateOptions: {
                 label: FormKeyLabels.turnOfAlertsOnSourceContext,
                 required: false,
@@ -134,6 +137,7 @@ export class FormlyFieldConfigCustom {
             {
               key: 'setSourceDatabaseToLocked',
               type: 'select',
+              className: 'col-7 mb-3',
               templateOptions: {
                 label: FormKeyLabels.setSourceDatabaseToLocked,
                 required: false,
@@ -149,10 +153,12 @@ export class FormlyFieldConfigCustom {
         //////// Third
         {
           templateOptions: {label: StepLabels.third},
+          fieldGroupClassName: 'row',
           fieldGroup: [
             {
               key: 'selectBackupDateTime',
               type: 'select',
+              className: 'col-6 mb-3',
               templateOptions: {
                 label: FormKeyLabels.selectBackupDateTime,
                 required: true,
@@ -162,6 +168,7 @@ export class FormlyFieldConfigCustom {
             {
               key: 'destinationServer',
               type: 'select',
+              className: 'col-6 mb-3',
               templateOptions: {
                 label: FormKeyLabels.destinationServer,
                 required: true,
@@ -171,6 +178,7 @@ export class FormlyFieldConfigCustom {
             {
               key: 'inboundEmailUniqueName',
               type: 'input',
+              className: 'col-6 mb-3',
               templateOptions: {
                 label: FormKeyLabels.inboundEmailUniqueName,
                 required: true,
@@ -180,6 +188,7 @@ export class FormlyFieldConfigCustom {
             {
               key: 'targetContextName',
               type: 'input',
+              className: 'col-6 mb-3',
               templateOptions: {
                 label: FormKeyLabels.targetContextName,
                 required: true,
@@ -189,6 +198,7 @@ export class FormlyFieldConfigCustom {
             {
               key: 'serverName',
               type: 'input',
+              className: 'col-7 mb-3',
               templateOptions: {
                 label: FormKeyLabels.serverName,
                 required: false,
@@ -198,6 +208,7 @@ export class FormlyFieldConfigCustom {
             {
               key: 'includeHistory',
               type: 'select',
+              className: 'col-6 mb-3',
               templateOptions: {
                 label: FormKeyLabels.includeHistory,
                 required: false,
@@ -207,6 +218,7 @@ export class FormlyFieldConfigCustom {
             {
               key: 'migrationOfSourceDocumentsIncluded',
               type: 'select',
+              className: 'col-6 mb-3',
               templateOptions: {
                 label: FormKeyLabels.migrationOfSourceDocumentsIncluded,
                 required: false,
@@ -216,6 +228,7 @@ export class FormlyFieldConfigCustom {
             {
               key: 'copyUserAccountsOfSource',
               type: 'select',
+              className: 'col-6 mb-3',
               templateOptions: {
                 label: FormKeyLabels.copyUserAccountsOfSource,
                 required: false,
@@ -225,6 +238,7 @@ export class FormlyFieldConfigCustom {
             {
               key: 'serverWideAccess',
               type: 'select',
+              className: 'col-6 mb-3',
               templateOptions: {
                 label: FormKeyLabels.serverWideAccess,
                 required: false,
@@ -236,10 +250,12 @@ export class FormlyFieldConfigCustom {
         //////// Last
         {
           templateOptions: {label: StepLabels.fourth},
+          fieldGroupClassName: 'row',
           fieldGroup: [
             {
               key: 'lastInfo',
               type: 'input',
+              className: 'col-7 mb-3',
               templateOptions: {
                 label: FormKeyLabels.lastInfo,
                 required: true,
@@ -248,6 +264,7 @@ export class FormlyFieldConfigCustom {
             {
               key: 'lastInfo2',
               type: 'input',
+              className: 'col-7 mb-3',
               templateOptions: {
                 label: FormKeyLabels.lastInfo2,
                 required: true,
