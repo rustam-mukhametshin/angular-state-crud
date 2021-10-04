@@ -5,22 +5,22 @@ export interface StepInterface {
   requestDate: string,
   requestor: string;
 
-  typeOfRequest: string;
-  executionDateTime: string;
+  typeOfRequest?: string;
+  executionDateTime?: string;
 
-  turnOfAlertsOnSourceContext: string,
-  setSourceDatabaseToLocked: string,
+  turnOfAlertsOnSourceContext?: string,
+  setSourceDatabaseToLocked?: string,
 
-  selectBackupDateTime: string,
-  destinationServer: string,
-  inboundEmailUniqueName: string,
-  targetContextName: string,
-  serverName: string,
-  includeHistory: string,
-  migrationOfSourceDocumentsIncluded: string,
-  copyUserAccountsOfSource: string,
-  serverWideAccess: string,
+  selectBackupDateTime?: string,
+  destinationServer?: string,
+  inboundEmailUniqueName?: string,
+  targetContextName?: string,
+  serverName?: string,
+  includeHistory?: string,
+  migrationOfSourceDocumentsIncluded?: string,
+  copyUserAccountsOfSource?: string,
+  serverWideAccess?: string,
 
-  lastInfo: string,
-  lastInfo2: string,
+  lastInfo?: string,
+  lastInfo2?: string,
 }
