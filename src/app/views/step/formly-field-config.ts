@@ -45,12 +45,6 @@ export class FormlyFieldConfigCustom {
     },
   };
 
-  existingProjects = [
-    'pr1',
-    'pr2',
-    'pr3',
-  ];
-
   initialFormConfigs: FormlyFieldConfig[] = [
     {
       type: 'stepper',
@@ -100,8 +94,14 @@ export class FormlyFieldConfigCustom {
                 uniqueUsername: {
                   expression: (control: FormControl) => {
                     return new Promise((resolve, reject) => {
+                      const existingProjects = [
+                        'pr1',
+                        'pr2',
+                        'pr3',
+                      ]
+
                       setTimeout(() => {
-                        resolve(this.existingProjects.indexOf(control.value) === -1);
+                        resolve(existingProjects.indexOf(control.value) === -1);
                       }, 1000);
                     });
                   },
