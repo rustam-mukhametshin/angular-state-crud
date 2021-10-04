@@ -6,6 +6,7 @@ import { StepEnum } from '../../../enums/step-enum';
 import { switchMap, takeUntil } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { LastInfoService } from '../../../services/addition/last-info.service';
 
 @Component({
   selector: 'app-step-page',
@@ -16,15 +17,17 @@ import { HttpClient } from '@angular/common/http';
 export class StepPageComponent implements OnInit, OnDestroy {
 
   configs$!: Observable<StepInterface>;
+  lastInfo$!: Observable<StepInterface>;
 
   private subs$ = new Subject<void>()
 
   constructor(
     private readonly facadeService: FacadeService,
     private readonly activatedRoute: ActivatedRoute,
-    private readonly httpClient: HttpClient
+    private readonly httpClient: HttpClient,
+    private readonly lastInfoService: LastInfoService
   ) {
-
+    this.lastInfo$ = this.lastInfoService.obs$;
   }
 
   ngOnInit() {

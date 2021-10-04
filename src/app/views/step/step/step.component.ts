@@ -1,10 +1,11 @@
-import { Component, EventEmitter, OnDestroy, Output, ViewEncapsulation } from '@angular/core';
+import { Component, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { FieldType, FormlyFieldConfig } from '@ngx-formly/core';
 import { StepInterface } from '../../../interfaces/step.interface';
 import { StepEnum } from '../../../enums/step-enum';
 import { FacadeService } from '../../../store/facade.service';
 import { takeUntil } from 'rxjs/operators';
 import { Subject } from 'rxjs';
+import { LastInfoService } from '../../../services/addition/last-info.service';
 
 @Component({
   selector: 'app-step',
@@ -14,12 +15,11 @@ import { Subject } from 'rxjs';
 })
 export class StepComponent extends FieldType implements OnDestroy {
 
-  @Output() lastInfo = new EventEmitter<StepInterface>();
-
   private subj$ = new Subject<void>();
 
   constructor(
-    private readonly facadeService: FacadeService
+    private readonly facadeService: FacadeService,
+    private readonly lastInfoService: LastInfoService
   ) {
     super();
   }
@@ -55,7 +55,7 @@ export class StepComponent extends FieldType implements OnDestroy {
       lastInfo2: values[1]
     }
 
-    this.lastInfo.emit(obj);
+    this.lastInfoService.update(obj)
 
     this.facadeService.step(StepEnum.updateConfigs, obj)
       .pipe(takeUntil(this.subj$))
