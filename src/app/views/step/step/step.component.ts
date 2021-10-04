@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { FieldType, FormlyFieldConfig } from '@ngx-formly/core';
+import { StepInterface } from '../../../interfaces/step.interface';
 
 @Component({
   selector: 'app-step',
@@ -40,4 +41,23 @@ export class StepComponent extends FieldType implements OnInit {
     return Object.values(obj).filter(v => !!v)
   }
 
+  interacted($event: any, step: any) {
+    const values: any | StepInterface = {};
+
+    // Получаем данные текущего шага
+    // Преобразуем в объект StepInterface Partial
+    step.fieldGroup
+      .map((item: any) => {
+        return {
+          key: item.key,
+          value: item.formControl.value
+        }
+      })
+      .forEach((item: any) => {
+        values[item.key] = item.value
+      })
+    ;
+
+    console.log(values);
+  }
 }
