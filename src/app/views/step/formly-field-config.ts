@@ -77,7 +77,7 @@ export class FormlyFieldConfigCustom {
                   }
                 },
                 click: (e) => {
-                  console.log(e);
+                  // console.log(e);
                 },
               },
             },
