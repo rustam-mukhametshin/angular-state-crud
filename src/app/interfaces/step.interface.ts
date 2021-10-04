@@ -1,9 +1,9 @@
 export interface StepInterface {
-  contextName: string;
-  contextID: number;
-  serverNameFirst: string;
-  requestDate: string,
-  requestor: string;
+  contextName?: string;
+  contextID?: number;
+  serverNameFirst?: string;
+  requestDate?: string,
+  requestor?: string;
 
   typeOfRequest?: string;
   executionDateTime?: string;
