@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { FormlyFieldConfig, FormlyFormOptions } from '@ngx-formly/core';
 import { FormlyFieldConfigCustom } from '../formly-field-config';
+import { Observable } from 'rxjs';
+import { StepInterface } from '../../../interfaces/step.interface';
 
 @Component({
   selector: 'app-form',
@@ -9,6 +11,10 @@ import { FormlyFieldConfigCustom } from '../formly-field-config';
   styleUrls: ['./form.component.css'],
 })
 export class FormComponent implements OnInit {
+
+  @Input()
+  configs$!: Observable<StepInterface>;
+
   form = new FormGroup({});
   mainModel: any;
 
