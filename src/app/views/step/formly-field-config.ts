@@ -89,6 +89,7 @@ export class FormlyFieldConfigCustom {
                 placeholder: 'Select a date',
                 required: true,
                 type: 'date',
+                min: new Date() as any
               },
               asyncValidators: {
                 uniqueUsername: {
