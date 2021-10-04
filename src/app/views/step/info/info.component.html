@@ -2,7 +2,7 @@
   <div class="card-body">
     <h5 *ngIf="title" class="card-title">{{title}}</h5>
     <div *ngFor="let i of configs | keyvalue">
-      <p class="card-text">
+      <p *ngIf="i.value" class="card-text">
         <b>{{i.key}}: &nbsp;</b>
         <span>{{i.value}}</span>
       </p>
