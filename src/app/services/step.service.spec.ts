@@ -4,6 +4,7 @@ import { StepService } from './step.service';
 import { of } from 'rxjs';
 import { StepFixture } from './mocks/StepFixture';
 import { StepInterface } from '../interfaces/step.interface';
+import { isEmpty, switchMap, take } from 'rxjs/operators';
 import SpyObj = jasmine.SpyObj;
 
 describe('StepService', () => {
@@ -60,7 +61,7 @@ describe('StepService', () => {
     });
 
     serviceSpy.getConfig.and.callFake(() => {
-      localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(fixture.config));
+      // localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(fixture.config));
       const data = JSON.parse(<string>localStorage.getItem(LOCALSTORAGE_KEY));
       return of(data);
     })
@@ -74,12 +75,28 @@ describe('StepService', () => {
     expect(service).toBeTruthy();
   });
 
-  it('#init should init configs and return configs', done => {
-    // Todo: Check also saved data
-    service.init().subscribe(configs => {
-      expect(configs).toEqual(fixture.config);
-      done();
-    });
+  it('#clear should clear key data in localstorage', done => {
+    service.init()
+      .pipe(
+        switchMap(config => {
+          // Check existence of config
+          expect(config).toEqual(fixture.config);
+          done();
+
+          // Clear storage
+          localStorage.clear();
+
+          // Return null TODO Returns initial data
+          return service.getConfig();
+        }),
+        take(1),
+        isEmpty()
+      )
+      .subscribe(configs => {
+        console.log(configs);
+        expect(configs).toBeTruthy();
+        done();
+      });
   });
 
   it('#update should update configs and return it', done => {
@@ -88,6 +105,13 @@ describe('StepService', () => {
         expect(config).toEqual(fixture.config2);
         done();
       })
+  });
+
+  it('#init should init configs and return configs', done => {
+    service.init().subscribe(configs => {
+      expect(configs).toEqual(fixture.config);
+      done();
+    });
   });
 
 
