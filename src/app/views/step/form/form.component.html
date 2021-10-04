@@ -1,7 +1,7 @@
 <form (ngSubmit)="submit()" [formGroup]="form">
 
   <formly-form
-    [fields]="fields" [form]="form" [model]="mainModel.model"
+    [fields]="initialFormConfigs" [form]="form" [model]="mainModel.model"
     [options]="options"
   ></formly-form>
 </form>

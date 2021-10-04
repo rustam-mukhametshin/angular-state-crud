@@ -18,12 +18,12 @@ export class FormComponent implements OnInit {
   form = new FormGroup({});
   mainModel: any;
 
-  fields!: FormlyFieldConfig[];
+  initialFormConfigs!: FormlyFieldConfig[];
   options: FormlyFormOptions = {};
 
   ngOnInit() {
     this.mainModel = new FormlyFieldConfigCustom;
-    this.fields = this.mainModel.fields;
+    this.initialFormConfigs = this.mainModel.initialFormConfigs;
   }
 
   submit() {

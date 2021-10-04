@@ -51,7 +51,7 @@ export class FormlyFieldConfigCustom {
     'pr3',
   ];
 
-  fields: FormlyFieldConfig[] = [
+  initialFormConfigs: FormlyFieldConfig[] = [
     {
       type: 'stepper',
       fieldGroup: [
@@ -114,10 +114,12 @@ export class FormlyFieldConfigCustom {
         //////// Second
         {
           templateOptions: {label: StepLabels.second},
+          fieldGroupClassName: 'row',
           fieldGroup: [
             {
               key: 'turnOfAlertsOnSourceContext',
               type: 'select',
+              className: 'col-6',
               templateOptions: {
                 label: FormKeyLabels.turnOfAlertsOnSourceContext,
                 required: false,
