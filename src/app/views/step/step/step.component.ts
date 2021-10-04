@@ -1,6 +1,8 @@
 import { Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { FieldType, FormlyFieldConfig } from '@ngx-formly/core';
 import { StepInterface } from '../../../interfaces/step.interface';
+import { StepEnum } from '../../../enums/step-enum';
+import { FacadeService } from '../../../store/facade.service';
 
 @Component({
   selector: 'app-step',
@@ -12,8 +14,10 @@ export class StepComponent extends FieldType implements OnInit {
 
   @Output() lastInfo = new EventEmitter<StepInterface>()
 
-  ngOnInit() {
-    console.log('Step c :', this.field?.fieldGroup)
+  constructor(
+    private readonly facadeService: FacadeService
+  ) {
+    super();
   }
 
 
@@ -48,7 +52,7 @@ export class StepComponent extends FieldType implements OnInit {
     }
 
     this.lastInfo.emit(obj);
-    // Todo to facade
+    this.facadeService.step(StepEnum.updateConfigs, obj);
   }
 
   checkModelEmpty(obj: {}) {
@@ -72,6 +76,6 @@ export class StepComponent extends FieldType implements OnInit {
       })
     ;
 
-    console.log(values);
+    this.facadeService.step(StepEnum.updateConfigs, values);
   }
 }
