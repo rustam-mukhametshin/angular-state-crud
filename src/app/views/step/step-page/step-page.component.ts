@@ -1,9 +1,9 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { FacadeService } from '../../../store/facade.service';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { StepInterface } from '../../../interfaces/step.interface';
 import { StepEnum } from '../../../enums/step-enum';
-import { switchMap, take } from 'rxjs/operators';
+import { switchMap, takeUntil } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 
@@ -13,9 +13,11 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./step-page.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class StepPageComponent implements OnInit {
+export class StepPageComponent implements OnInit, OnDestroy {
 
   configs$!: Observable<StepInterface>;
+
+  private subs$ = new Subject<void>()
 
   constructor(
     private readonly facadeService: FacadeService,
@@ -29,8 +31,14 @@ export class StepPageComponent implements OnInit {
     this.configs$ = this.facadeService.step(StepEnum.getConfigs);
 
     this.setInitialValues()
-      .pipe(take(1))
+      .pipe(takeUntil(this.subs$))
+      .subscribe()
     ;
+  }
+
+  ngOnDestroy(): void {
+    this.subs$.next();
+    this.subs$.complete();
   }
 
   private setInitialValues() {
