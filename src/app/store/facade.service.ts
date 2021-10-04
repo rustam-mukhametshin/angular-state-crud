@@ -81,15 +81,15 @@ export class FacadeService {
     }
   }
 
-  step(method: StepEnum.updateConfigs, config: StepInterface): Observable<StepInterface>
+  step(method: StepEnum.updateConfigs, configs: StepInterface): Observable<StepInterface>
   step(method: StepEnum.getConfigs): Observable<StepInterface>
   step(
     method: unknown,
-    config?: unknown
+    configs?: unknown
   ): unknown {
     switch (method) {
       case StepEnum.updateConfigs:
-        return this.stepStateService.update(config);
+        return this.stepStateService.update(configs as StepInterface);
       case StepEnum.getConfigs:
         return this.stepStateService.configs$;
       default:
