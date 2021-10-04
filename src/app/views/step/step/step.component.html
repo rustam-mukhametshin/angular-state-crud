@@ -28,7 +28,7 @@
           Next Step
         </button>
 
-        <button *ngIf="last" [disabled]="!form.valid"
+        <button (click)="save()" *ngIf="last" [disabled]="!form.valid"
                 class="btn btn-primary"
                 type="submit">
           Save

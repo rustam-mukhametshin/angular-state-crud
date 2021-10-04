@@ -10,6 +10,8 @@ import { StepInterface } from '../../../interfaces/step.interface';
 })
 export class StepComponent extends FieldType implements OnInit {
 
+  @Output() lastInfo = new EventEmitter<StepInterface>()
+
   ngOnInit() {
     console.log('Step c :', this.field?.fieldGroup)
   }
@@ -35,6 +37,18 @@ export class StepComponent extends FieldType implements OnInit {
       return field.formControl.valid;
     }*/
     return true;
+  }
+
+  save() {
+    // @ts-ignore
+    const values: any = this.field?.fieldGroup[3].fieldGroup.map((c: any) => c.formControl.value)
+    const obj: StepInterface = {
+      lastInfo: values[0],
+      lastInfo2: values[1]
+    }
+
+    this.lastInfo.emit(obj);
+    // Todo to facade
   }
 
   checkModelEmpty(obj: {}) {
