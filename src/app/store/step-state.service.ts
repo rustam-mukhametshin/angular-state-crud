@@ -3,7 +3,7 @@ import { StateService } from './state.service';
 import { StepStateInterface } from '../interfaces/step-state.interface';
 import { Observable, of } from 'rxjs';
 import { StepInterface } from '../interfaces/step.interface';
-import { shareReplay, switchMap } from 'rxjs/operators';
+import { shareReplay, switchMap, tap } from 'rxjs/operators';
 import { StepService } from '../services/step.service';
 
 const initialState: StepStateInterface = {
@@ -59,8 +59,18 @@ export class StepStateService extends StateService<StepStateInterface> {
       )
   }
 
-  update(config: any): Observable<StepInterface> {
-    return of()
+  update(configs: StepInterface): Observable<StepInterface> {
+    return this.stepService.update(configs)
+      .pipe(
+        tap(updateStep => {
+          this.setState({
+            configs: {
+              ...this.state.configs,
+              ...updateStep
+            }
+          })
+        })
+      )
   }
 
   getConfig(): Observable<StepInterface> {
