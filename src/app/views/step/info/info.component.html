@@ -2,10 +2,14 @@
   <div class="card-body">
     <h5 *ngIf="title" class="card-title">{{title}}</h5>
     <div *ngFor="let i of configs | keyvalue">
-      <p *ngIf="i.value" class="card-text">
-        <b>{{i.key}}: &nbsp;</b>
-        <span>{{i.value}}</span>
-      </p>
+
+      <div *ngIf="!excludeKeys.includes(i.key)">
+        <p *ngIf="i.value" class="card-text">
+          <b>{{i.key}}: &nbsp;</b>
+          <span>{{i.value}}</span>
+        </p>
+      </div>
+
     </div>
   </div>
 </div>
