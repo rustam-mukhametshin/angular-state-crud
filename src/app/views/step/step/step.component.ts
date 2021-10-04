@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Output, ViewEncapsulation } from '@angular/core';
 import { FieldType, FormlyFieldConfig } from '@ngx-formly/core';
 import { StepInterface } from '../../../interfaces/step.interface';
 import { StepEnum } from '../../../enums/step-enum';
@@ -10,7 +10,7 @@ import { FacadeService } from '../../../store/facade.service';
   styleUrls: ['./step.component.css'],
   encapsulation: ViewEncapsulation.None,
 })
-export class StepComponent extends FieldType implements OnInit {
+export class StepComponent extends FieldType {
 
   @Output() lastInfo = new EventEmitter<StepInterface>()
 
