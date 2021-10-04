@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class InfoComponent implements OnInit {
 
-  @Input() configs$!: Observable<StepInterface>;
+  @Input() configs$!: Observable<StepInterface | any>;
   @Input() title!: string;
 
   constructor() {
