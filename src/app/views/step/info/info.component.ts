@@ -9,7 +9,6 @@ import { Observable } from 'rxjs';
 })
 export class InfoComponent implements OnInit {
 
-  // Todo: remove any type
   @Input() configs$!: Observable<StepInterface>;
   @Input() title!: string;
 
