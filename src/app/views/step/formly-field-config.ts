@@ -125,6 +125,10 @@ export class FormlyFieldConfigCustom {
                 label: FormKeyLabels.turnOfAlertsOnSourceContext,
                 required: false,
                 placeholder: 'Please select from list',
+                options: [
+                  {label: 'Yes', value: 'yes'},
+                  {label: 'No', value: 'no'},
+                ],
               },
             },
             {
@@ -134,6 +138,10 @@ export class FormlyFieldConfigCustom {
                 label: FormKeyLabels.setSourceDatabaseToLocked,
                 required: false,
                 placeholder: 'Please select from list',
+                options: [
+                  {label: 'Yes', value: 'yes'},
+                  {label: 'No', value: 'no'},
+                ],
               },
             },
           ],
