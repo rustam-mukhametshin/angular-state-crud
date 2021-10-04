@@ -30,7 +30,7 @@ export enum FormKeyLabels {
 }
 
 export class FormlyFieldConfigCustom {
-  mainModel: any = {
+  static mainModel: any = {
     model: {},
     predefined: {
       copy: 'copy',
@@ -45,7 +45,7 @@ export class FormlyFieldConfigCustom {
     },
   };
 
-  initialFormConfigs: FormlyFieldConfig[] = [
+  static initialFormConfigs: FormlyFieldConfig[] = [
     {
       type: 'stepper',
       fieldGroup: [
@@ -68,12 +68,12 @@ export class FormlyFieldConfigCustom {
                 change: (e: any) => {
                   const value = e.formControl?.value;
                   if (value === 'move') {
-                    this.mainModel.model = {
-                      ...this.mainModel.model,
-                      ...this.mainModel.predefined
+                    FormlyFieldConfigCustom.mainModel.model = {
+                      ...FormlyFieldConfigCustom.mainModel.model,
+                      ...FormlyFieldConfigCustom.mainModel.predefined
                     };
                   } else if (value === 'copy') {
-                    this.mainModel.model = this.mainModel.empty
+                    FormlyFieldConfigCustom.mainModel.model = FormlyFieldConfigCustom.mainModel.empty
                   }
                 },
                 click: (e) => {
